@@ -5,30 +5,30 @@ extends Node2D
 
 #Interns
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 #Variables
 var tileAtual : Vector2i:
 	set(value):
 		tileAtual = value
-		global_position = tilemap.map_to_local(value)
+		var tween : Tween = create_tween()
+		tween.tween_property(self, "global_position", tilemap.map_to_local(value), 0.2)
 
 func _ready() -> void:
 	tileAtual = tilemap.local_to_map(global_position)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Down"):
-		tileAtual = tileAtual + Vector2i.DOWN
-		sprite.play("Down")
-		sprite.flip_h = false
+		move(Vector2i.DOWN, "Down")
 	elif event.is_action_pressed("Left"):
-		tileAtual = tileAtual + Vector2i.LEFT
-		sprite.play("Side")
-		sprite.flip_h = false
+		move(Vector2i.LEFT, "Side")
 	elif event.is_action_pressed("Right"):
-		tileAtual = tileAtual + Vector2i.RIGHT
-		sprite.play("Side")
-		sprite.flip_h = true
+		move(Vector2i.RIGHT, "Side", true)
 	elif event.is_action_pressed("Up"):
-		tileAtual = tileAtual + Vector2i.UP
-		sprite.play("Up")
-		sprite.flip_h = false
+		move(Vector2i.UP, "Up")
+
+func move(dir : Vector2i, anim : String, flip_h : bool = false):
+	tileAtual = tileAtual + dir
+	sprite.play(anim)
+	sprite.flip_h = flip_h
+	animation.play("Move")

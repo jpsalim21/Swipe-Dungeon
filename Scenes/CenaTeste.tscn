@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwfkpmtjc67xr"]
+
+[ext_resource type="Texture2D" uid="uid://b33xlevpxyb2y" path="res://Sprites/Mago.png" id="1_reej6"]
+[ext_resource type="Script" uid="uid://cl46uvvmo1ipo" path="res://Scripts/PlayerScript.gd" id="1_rvl5l"]
+
+[sub_resource type="TileSet" id="TileSet_rvl5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvl5l"]
+atlas = ExtResource("1_reej6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reej6"]
+atlas = ExtResource("1_reej6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iqmv"]
+atlas = ExtResource("1_reej6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iqmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvl5l")
+}],
+"loop": false,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reej6")
+}],
+"loop": false,
+"name": &"Side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iqmv")
+}],
+"loop": false,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="tilemap" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_rvl5l")
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("1_rvl5l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_6iqmv")
+animation = &"Down"
+autoplay = "Down"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

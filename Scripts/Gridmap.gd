@@ -3,14 +3,15 @@ extends TileMapLayer
 
 @export var crystalNode : Node2D
 
-var map : Dictionary[Vector2i, Tile]
+var map : Dictionary[Vector2i, Tile] = {}
 
-var usedCells : Array[Vector2i]
+var usedCells : Array[Vector2i] = []
 
 func _ready() -> void:
 	usedCells = get_used_cells()
 	var alvo = local_to_map(crystalNode.global_position)
 	calculatePathfinding(alvo, alvo)
+	setOcupado(alvo)
 
 func calculatePathfinding(alvo : Vector2i, anterior : Vector2i, custo : int = 0):
 	if alvo not in usedCells:
@@ -34,5 +35,6 @@ func setOcupado(tile : Vector2i, ocupado : bool = true):
 	map[tile].ocupado = ocupado
 
 func getOcupado(tile : Vector2i) -> bool:
-	if map.has(tile): return map[tile].ocupado
+	if map.has(tile):
+		return map[tile].ocupado
 	return true

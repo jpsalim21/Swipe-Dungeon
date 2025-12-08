@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=20 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="Texture2D" uid="uid://dq2b2hceowthd" path="res://Sprites/Placeholder/tileset_gray.png" id="1_6iqmv"]
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Gridmap.gd" id="3_yt05o"]
 [ext_resource type="Texture2D" uid="uid://bbmh7hbv6i2w7" path="res://Sprites/Crystal.png" id="5_rjybr"]
 [ext_resource type="Texture2D" uid="uid://caomrp1fdogon" path="res://Sprites/EnemyPlaceholder.png" id="5_yt05o"]
+[ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="7_hlfcp"]
+[ext_resource type="Script" uid="uid://byasqch4yx7m0" path="res://Scripts/EnemyBaseScript.gd" id="7_i802y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ede5x"]
 texture = ExtResource("1_6iqmv")
@@ -171,7 +173,7 @@ position = Vector2(-8, 8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-8, 8)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -188,12 +190,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ede5x")
 
-[node name="EnemyPlaceholder" type="Sprite2D" parent="."]
-position = Vector2(-40, -13)
-texture = ExtResource("5_yt05o")
-
 [node name="Crystal" type="Node2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(24, 8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crystal"]
 y_sort_enabled = true
@@ -201,3 +199,14 @@ sprite_frames = SubResource("SpriteFrames_fy507")
 autoplay = "default"
 frame_progress = 0.8856808
 offset = Vector2(0, -10)
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("7_hlfcp")
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(-40, -24)
+script = ExtResource("7_i802y")
+
+[node name="EnemyPlaceholder" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_yt05o")
+offset = Vector2(0, -5)

@@ -1,7 +1,7 @@
 extends Node2D
 
 #Externs
-@onready var tilemap: TileMapLayer = %tilemap
+@onready var tilemap: Gridmap = %tilemap
 
 #Interns
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -10,7 +10,11 @@ extends Node2D
 #Variables
 var tileAtual : Vector2i:
 	set(value):
+		if tilemap.getOcupado(value):
+			return
+		tilemap.setOcupado(tileAtual, false)
 		tileAtual = value
+		tilemap.setOcupado(tileAtual)
 		var tween : Tween = create_tween()
 		tween.tween_property(self, "global_position", tilemap.map_to_local(value), 0.2)
 

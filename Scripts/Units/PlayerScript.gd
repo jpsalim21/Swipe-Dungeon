@@ -7,20 +7,11 @@ extends Unit
 
 var turnosFora : int = 0
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Down"):
-		move(Vector2i.DOWN, "Down")
-	elif event.is_action_pressed("Left"):
-		move(Vector2i.LEFT, "Side")
-	elif event.is_action_pressed("Right"):
-		move(Vector2i.RIGHT, "Side", true)
-	elif event.is_action_pressed("Up"):
-		move(Vector2i.UP, "Up")
-
 func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	tileAtual = tileAtual + dir
 	sprite.play(anim)
 	sprite.flip_h = flip_h
+	animation.stop()
 	animation.play("Move")
 
 func takeDmg():

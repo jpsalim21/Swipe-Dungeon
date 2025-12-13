@@ -1,35 +1,49 @@
 class_name Gridmap
 extends TileMapLayer
 
-@export var crystalNode : Node2D
+@export var playerUnits : Array[Node2D] = []
 
 var map : Dictionary[Vector2i, Tile] = {}
+var pathfindingMap : Dictionary[Vector2i, Tile] = {}
 
 var usedCells : Array[Vector2i] = []
 
 func _ready() -> void:
 	usedCells = get_used_cells()
-	var alvo = local_to_map(crystalNode.global_position)
-	calculatePathfinding(alvo, alvo)
-	map[alvo].cristal = true
+	createGrid()
+	recalculateTile()
+
+func createGrid():
+	for cell in usedCells:
+		var newTile : Tile = Tile.new(Vector2i.ZERO, int(INF))
+		map[cell] = newTile
 
 func calculatePathfinding(alvo : Vector2i, anterior : Vector2i, custo : int = 0):
 	if alvo not in usedCells:
 		return
-	if !map.has(alvo):
+	if !pathfindingMap.has(alvo):
 		var newTile : Tile = Tile.new(anterior, custo)
-		map[alvo] = newTile
+		pathfindingMap[alvo] = newTile
 	else:
-		if map[alvo].custo > custo:
-			map[alvo].custo = custo
-			map[alvo].anterior = anterior
+		if pathfindingMap[alvo].custo > custo:
+			pathfindingMap[alvo].custo = custo
+			pathfindingMap[alvo].anterior = anterior
 		else:
 			return
+	#Treshold to not calculate over everything
+	if custo > 6:
+		return
 	#Calculate to neighbours
 	calculatePathfinding(alvo + Vector2i.UP, alvo, custo + 1)
 	calculatePathfinding(alvo + Vector2i.DOWN, alvo, custo + 1)
 	calculatePathfinding(alvo + Vector2i.LEFT, alvo, custo + 1)
 	calculatePathfinding(alvo + Vector2i.RIGHT, alvo, custo + 1)
+
+func recalculateTile():
+	pathfindingMap.clear()
+	for unit in playerUnits:
+		var alvo : Vector2i = local_to_map(unit.global_position)
+		calculatePathfinding(alvo, alvo)
 
 func setOcupado(tile : Vector2i, unit : Unit):
 	map[tile].unit = unit
@@ -46,9 +60,14 @@ func getUnit(tile : Vector2i):
 
 func causeDmg(tile : Vector2i):
 	if map.has(tile):
-		print("Map has tile", tile)
 		map[tile].takeDmg()
-	print("Map has not tile", tile)
+
+func getNextTile(tileAtual : Vector2i):
+	var tile : Tile = pathfindingMap.get(tileAtual, null)
+	if tile:
+		return tile.anterior
+	else:
+		return tileAtual
 
 '''
 # Manter em comentário, pois pode dar uma mecânica interessante

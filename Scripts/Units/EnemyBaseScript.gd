@@ -2,7 +2,7 @@ class_name EnemyUnit
 extends Unit
 
 func doTurn():
-	tileAtual = tilemap.map[tileAtual].anterior
+	tileAtual = tilemap.getNextTile(tileAtual)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):

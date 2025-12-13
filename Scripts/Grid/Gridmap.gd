@@ -45,12 +45,13 @@ func recalculateTile():
 		var alvo : Vector2i = local_to_map(unit.global_position)
 		calculatePathfinding(alvo, alvo)
 
-func setOcupado(tile : Vector2i, unit : Unit):
+func setOcupado(tile : Vector2i, unit : Unit, playerUnit : bool = false):
 	map[tile].unit = unit
+	map[tile].playerUnit = playerUnit
 
 func getOcupado(tile : Vector2i) -> bool:
 	if map.has(tile):
-		return map[tile].ocupado or map[tile].cristal
+		return map[tile].ocupado
 	return true
 
 func getUnit(tile : Vector2i):
@@ -58,9 +59,9 @@ func getUnit(tile : Vector2i):
 		return map[tile].unit
 	return null
 
-func causeDmg(tile : Vector2i):
+func causeDmg(tile : Vector2i, isPlayer : bool = false):
 	if map.has(tile):
-		map[tile].takeDmg()
+		map[tile].takeDmg(isPlayer)
 
 func getNextTile(tileAtual : Vector2i):
 	var tile : Tile = pathfindingMap.get(tileAtual, null)

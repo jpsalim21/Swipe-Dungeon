@@ -1,0 +1,16 @@
+A fazer:
+	Adicionar som
+	Criar cena inicial
+	
+	Adicionar arqueiro
+	Adicionar ataque do mago
+	Adicionar botão para abrir porta
+	Adicionar efeito visual para morte de personagem
+	Adicionar restart
+	
+	Adicionar inimigo diferente
+	
+	Desenhar pedras para o cenário
+
+Fazendo:
+	Adicionar animação para ataque do guerreiro

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cef5oyggjgvha"]
+[gd_scene load_steps=15 format=3 uid="uid://cef5oyggjgvha"]
 
 [ext_resource type="PackedScene" uid="uid://r7dvnv5aydjf" path="res://ObjectScenes/PlayerBase.tscn" id="1_4xd3o"]
 [ext_resource type="Texture2D" uid="uid://c0gvxgl8dftl7" path="res://Sprites/Guerreiro.png" id="2_3r4et"]
 [ext_resource type="Script" uid="uid://bwpp7lwsn54rk" path="res://Scripts/Ataques/AtaqueEspada.gd" id="3_3r4et"]
+[ext_resource type="Texture2D" uid="uid://cw700n5fo7738" path="res://Sprites/Espada.png" id="4_t8efq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8efq"]
 atlas = ExtResource("2_3r4et")
@@ -43,12 +44,68 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfrrr"]
+atlas = ExtResource("4_t8efq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6kmc"]
+atlas = ExtResource("4_t8efq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3b16"]
+atlas = ExtResource("4_t8efq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd4lr"]
+atlas = ExtResource("4_t8efq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi0p8"]
+atlas = ExtResource("4_t8efq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi0p8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfrrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6kmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3b16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd4lr")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi0p8")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}]
+
 [node name="Player" instance=ExtResource("1_4xd3o")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_yfrrr")
 animation = &"Side"
 
-[node name="AtaqueEspada" type="Node" parent="." index="2" node_paths=PackedStringArray("playerUnit")]
+[node name="AtaqueEspada" type="Node2D" parent="." index="2" node_paths=PackedStringArray("playerUnit")]
 script = ExtResource("3_3r4et")
 playerUnit = NodePath("..")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AtaqueEspada" index="0"]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_bi0p8")
+animation = &"Attack"
+autoplay = "Default"
+frame = 3
+frame_progress = 1.0

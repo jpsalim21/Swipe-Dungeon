@@ -17,3 +17,6 @@ func move(dir : Vector2i, anim : String, flip_h : bool = false):
 func takeDmg():
 	print("Tomei dano no player")
 	turnosFora = 2
+
+func setOcupado(tile : Vector2i):
+	tilemap.setOcupado(tile, self as PlayerUnit, true)

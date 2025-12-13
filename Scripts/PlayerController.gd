@@ -24,7 +24,6 @@ func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	for p in playerUnits:
 		p.move(dir, anim, flip_h)
 
-
 func sortCustom(a : PlayerUnit, b : PlayerUnit):
 	var diff : Vector2i = a.tileAtual - b.tileAtual
 	if dirMoving.x > 0:

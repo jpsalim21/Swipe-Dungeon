@@ -7,13 +7,14 @@ var ocupado : bool:
 	get():
 		return unit != null
 var unit : Unit = null
-
-var cristal : bool = false
+var playerUnit : bool = false
 
 func _init(_anterior : Vector2i, _custo : int) -> void:
 	anterior = _anterior
 	custo = _custo
 
-func takeDmg():
+func takeDmg(isPlayer : bool):
+	if isPlayer and playerUnit:
+		return
 	if unit:
 		unit.takeDmg()

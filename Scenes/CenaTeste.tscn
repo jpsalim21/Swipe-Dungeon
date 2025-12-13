@@ -234,3 +234,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ede5x")
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("7_hlfcp")
+
+[editable path="PlayerController/Player2"]

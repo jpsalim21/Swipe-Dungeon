@@ -11,7 +11,7 @@ func _ready() -> void:
 	usedCells = get_used_cells()
 	var alvo = local_to_map(crystalNode.global_position)
 	calculatePathfinding(alvo, alvo)
-	setOcupado(alvo)
+	map[alvo].cristal = true
 
 func calculatePathfinding(alvo : Vector2i, anterior : Vector2i, custo : int = 0):
 	if alvo not in usedCells:
@@ -31,10 +31,30 @@ func calculatePathfinding(alvo : Vector2i, anterior : Vector2i, custo : int = 0)
 	calculatePathfinding(alvo + Vector2i.LEFT, alvo, custo + 1)
 	calculatePathfinding(alvo + Vector2i.RIGHT, alvo, custo + 1)
 
-func setOcupado(tile : Vector2i, ocupado : bool = true):
-	map[tile].ocupado = ocupado
+func setOcupado(tile : Vector2i, unit : Unit):
+	map[tile].unit = unit
 
 func getOcupado(tile : Vector2i) -> bool:
 	if map.has(tile):
-		return map[tile].ocupado
+		return map[tile].ocupado or map[tile].cristal
 	return true
+
+func getUnit(tile : Vector2i):
+	if map.has(tile):
+		return map[tile].unit
+	return null
+
+func causeDmg(tile : Vector2i):
+	if map.has(tile):
+		print("Map has tile", tile)
+		map[tile].takeDmg()
+	print("Map has not tile", tile)
+
+'''
+# Manter em comentário, pois pode dar uma mecânica interessante
+func empurrar(tile : Vector2i, dir : Vector2i):
+	if !map[tile].ocupado or map[tile].cristal:
+		return
+	empurrar(tile + dir, dir)
+	map[tile].unit.tileAtual = tile + dir
+'''

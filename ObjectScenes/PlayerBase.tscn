@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://r7dvnv5aydjf"]
 
-[ext_resource type="Script" uid="uid://cl46uvvmo1ipo" path="res://Scripts/PlayerScript.gd" id="1_15ixf"]
+[ext_resource type="Script" uid="uid://cl46uvvmo1ipo" path="res://Scripts/Units/PlayerScript.gd" id="1_15ixf"]
 [ext_resource type="Texture2D" uid="uid://b33xlevpxyb2y" path="res://Sprites/Mago.png" id="2_5jq54"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvl5l"]

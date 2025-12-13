@@ -1,25 +1,11 @@
-extends Node2D
-
-#Externs
-@onready var tilemap: Gridmap = %tilemap
+class_name PlayerUnit
+extends Unit
 
 #Interns
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
-#Variables
-var tileAtual : Vector2i:
-	set(value):
-		if tilemap.getOcupado(value):
-			return
-		tilemap.setOcupado(tileAtual, false)
-		tileAtual = value
-		tilemap.setOcupado(tileAtual)
-		var tween : Tween = create_tween()
-		tween.tween_property(self, "global_position", tilemap.map_to_local(value), 0.2)
-
-func _ready() -> void:
-	tileAtual = tilemap.local_to_map(global_position)
+var turnosFora : int = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Down"):
@@ -36,3 +22,7 @@ func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	sprite.play(anim)
 	sprite.flip_h = flip_h
 	animation.play("Move")
+
+func takeDmg():
+	print("Tomei dano no player")
+	turnosFora = 2

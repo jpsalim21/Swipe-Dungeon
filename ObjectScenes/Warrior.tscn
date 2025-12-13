@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cef5oyggjgvha"]
+
+[ext_resource type="PackedScene" uid="uid://r7dvnv5aydjf" path="res://ObjectScenes/PlayerBase.tscn" id="1_4xd3o"]
+[ext_resource type="Texture2D" uid="uid://c0gvxgl8dftl7" path="res://Sprites/Guerreiro.png" id="2_3r4et"]
+[ext_resource type="Script" uid="uid://bwpp7lwsn54rk" path="res://Scripts/Ataques/AtaqueEspada.gd" id="3_3r4et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8efq"]
+atlas = ExtResource("2_3r4et")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if4k0"]
+atlas = ExtResource("2_3r4et")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gr0l"]
+atlas = ExtResource("2_3r4et")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfrrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8efq")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if4k0")
+}],
+"loop": true,
+"name": &"Side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gr0l")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Player" instance=ExtResource("1_4xd3o")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_yfrrr")
+animation = &"Side"
+
+[node name="AtaqueEspada" type="Node" parent="." index="2" node_paths=PackedStringArray("playerUnit")]
+script = ExtResource("3_3r4et")
+playerUnit = NodePath("..")

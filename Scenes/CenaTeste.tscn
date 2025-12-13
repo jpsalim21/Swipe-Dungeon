@@ -1,13 +1,16 @@
-[gd_scene load_steps=20 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=23 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="Texture2D" uid="uid://dq2b2hceowthd" path="res://Sprites/Placeholder/tileset_gray.png" id="1_6iqmv"]
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
 [ext_resource type="PackedScene" uid="uid://r7dvnv5aydjf" path="res://ObjectScenes/PlayerBase.tscn" id="3_ede5x"]
-[ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Gridmap.gd" id="3_yt05o"]
+[ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Grid/Gridmap.gd" id="3_yt05o"]
 [ext_resource type="Texture2D" uid="uid://bbmh7hbv6i2w7" path="res://Sprites/Crystal.png" id="5_rjybr"]
 [ext_resource type="Texture2D" uid="uid://caomrp1fdogon" path="res://Sprites/EnemyPlaceholder.png" id="5_yt05o"]
 [ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="7_hlfcp"]
-[ext_resource type="Script" uid="uid://byasqch4yx7m0" path="res://Scripts/EnemyBaseScript.gd" id="7_i802y"]
+[ext_resource type="Script" uid="uid://byasqch4yx7m0" path="res://Scripts/Units/EnemyBaseScript.gd" id="7_i802y"]
+[ext_resource type="PackedScene" uid="uid://cef5oyggjgvha" path="res://ObjectScenes/Warrior.tscn" id="9_sim72"]
+[ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="10_uk6nu"]
+[ext_resource type="Texture2D" uid="uid://dobd4ghii3kq1" path="res://icon.svg" id="11_5gdr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ede5x"]
 texture = ExtResource("1_6iqmv")
@@ -171,14 +174,6 @@ crystalNode = NodePath("../Crystal")
 [node name="Player" parent="." instance=ExtResource("3_ede5x")]
 position = Vector2(-8, 8)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-8, 8)
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-editor_draw_drag_margin = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -210,3 +205,26 @@ script = ExtResource("7_i802y")
 [node name="EnemyPlaceholder" type="Sprite2D" parent="Enemy"]
 texture = ExtResource("5_yt05o")
 offset = Vector2(0, -5)
+
+[node name="Player2" parent="." instance=ExtResource("9_sim72")]
+position = Vector2(-24, 41)
+
+[node name="CameraAnchor" type="Node2D" parent="." node_paths=PackedStringArray("elementos")]
+script = ExtResource("10_uk6nu")
+elementos = [NodePath("../Player"), NodePath("../Player2")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CameraAnchor"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="CameraAnchor"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_5gdr1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+editor_draw_drag_margin = true

@@ -1,6 +1,10 @@
 class_name EnemyUnit
 extends Unit
 
+static var DIE_PARTICLE = preload("uid://b32176hy2txb4")
+@onready var sprite: Sprite2D = $Sprite
+@onready var timer: Timer = $Timer
+
 func _ready() -> void:
 	super._ready()
 
@@ -13,5 +17,14 @@ func estavaOcupado(value : Vector2i):
 		playerUnit.takeDmg()
 
 func takeDmg():
-	print("Tomei dano")
+	var shaderMat : ShaderMaterial = sprite.material
+	shaderMat.set_shader_parameter("branco", true)
+	timer.start(0.1)
+	await timer.timeout
+	
+	var particula : CPUParticles2D = DIE_PARTICLE.instantiate() as CPUParticles2D
+	get_tree().current_scene.add_child(particula)
+	particula.global_position = global_position
+	particula.emitting = true
+	print("Instanciei a particula")
 	queue_free()

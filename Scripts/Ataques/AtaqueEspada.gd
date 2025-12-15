@@ -5,6 +5,7 @@ extends Node
 
 func _ready() -> void:
 	playerUnit.movimentou.connect(atacar)
+	playerUnit.travouMovimento.connect(atacar)
 
 func atacar(dir : Vector2i):
 	var tileAlvo : Vector2i = playerUnit.tileAtual + dir

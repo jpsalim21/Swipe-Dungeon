@@ -2,7 +2,7 @@ class_name Unit
 extends Node2D
 
 signal movimentou(dir : Vector2i)
-signal travouMovimento(newTile : Vector2i)
+signal travouMovimento(dir : Vector2i)
 
 @onready var tilemap: Gridmap = %tilemap
 
@@ -11,7 +11,7 @@ var tileInicial : bool = true
 var tileAtual : Vector2i:
 	set(value):
 		if tilemap.getOcupado(value):
-			travouMovimento.emit(value)
+			travouMovimento.emit(value - tileAtual)
 			estavaOcupado(value)
 			return
 		tilemap.setOcupado(tileAtual, null)

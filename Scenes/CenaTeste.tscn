@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=27 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="Texture2D" uid="uid://dq2b2hceowthd" path="res://Sprites/Placeholder/tileset_gray.png" id="1_6iqmv"]
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="10_uk6nu"]
 [ext_resource type="Texture2D" uid="uid://dobd4ghii3kq1" path="res://icon.svg" id="11_5gdr1"]
 [ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/EnemyController.gd" id="13_a3s4c"]
+[ext_resource type="Shader" uid="uid://dr1ydyoitexet" path="res://Shader/BlinkShader.gdshader" id="13_myfth"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ede5x"]
 texture = ExtResource("1_6iqmv")
@@ -162,6 +163,10 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ede5x"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7y3am"]
+shader = ExtResource("13_myfth")
+shader_parameter/branco = false
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
@@ -216,10 +221,10 @@ autoplay = "default"
 frame_progress = 0.8856808
 offset = Vector2(0, -10)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="Background"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -232,15 +237,19 @@ unique_name_in_owner = true
 script = ExtResource("7_hlfcp")
 
 [node name="EnemyController" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("13_a3s4c")
 
 [node name="Enemy" type="Node2D" parent="EnemyController"]
 position = Vector2(-40, -24)
 script = ExtResource("7_i802y")
 
-[node name="EnemyPlaceholder" type="Sprite2D" parent="EnemyController/Enemy"]
+[node name="Sprite" type="Sprite2D" parent="EnemyController/Enemy"]
+material = SubResource("ShaderMaterial_7y3am")
 texture = ExtResource("5_yt05o")
 offset = Vector2(0, -5)
+
+[node name="Timer" type="Timer" parent="EnemyController/Enemy"]
 
 [node name="Timer" type="Timer" parent="EnemyController"]
 one_shot = true

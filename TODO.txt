@@ -5,12 +5,17 @@ A fazer:
 	Adicionar arqueiro
 	Adicionar ataque do mago
 	Adicionar botão para abrir porta
-	Adicionar efeito visual para morte de personagem
 	Adicionar restart
+	Adicionar porta
 	
 	Adicionar inimigo diferente
 	
 	Desenhar pedras para o cenário
 
 Fazendo:
+	Corrigir ataque da espada
+
+
+Feito:
 	Adicionar animação para ataque do guerreiro
+	Adicionar efeito visual para morte de personagem

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b32176hy2txb4"]
+
+[ext_resource type="Texture2D" uid="uid://caomrp1fdogon" path="res://Sprites/EnemyPlaceholder.png" id="1_ost6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pydad"]
+atlas = ExtResource("1_ost6h")
+region = Rect2(3, 2, 5, 4)
+
+[sub_resource type="Gradient" id="Gradient_s3x0w"]
+offsets = PackedFloat32Array(0, 0.84462154, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_pydad")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, -1)
+spread = 20.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+color_ramp = SubResource("Gradient_s3x0w")

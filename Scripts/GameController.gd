@@ -1,3 +1,5 @@
+class_name GameController
 extends Node
 
-var crystalLife : int = 5
+signal playerEndTurn
+signal enemyEndTurn

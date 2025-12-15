@@ -1,6 +1,8 @@
 class_name Gridmap
 extends TileMapLayer
 
+
+@onready var game_controller: GameController = %GameController
 @export var playerUnits : Array[Node2D] = []
 
 var map : Dictionary[Vector2i, Tile] = {}
@@ -12,6 +14,7 @@ func _ready() -> void:
 	usedCells = get_used_cells()
 	createGrid()
 	recalculateTile()
+	game_controller.playerEndTurn.connect(recalculateTile)
 
 func createGrid():
 	for cell in usedCells:

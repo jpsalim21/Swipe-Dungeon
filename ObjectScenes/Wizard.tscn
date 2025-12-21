@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://jqbj44sg2mek"]
+
+[ext_resource type="PackedScene" uid="uid://r7dvnv5aydjf" path="res://ObjectScenes/PlayerBase.tscn" id="1_3xx5k"]
+[ext_resource type="Script" uid="uid://dppyxqofn3got" path="res://Scripts/Ataques/AtaqueMagia.gd" id="2_jdn1i"]
+
+[node name="Player" instance=ExtResource("1_3xx5k")]
+
+[node name="Magia" type="Node2D" parent="." index="2"]
+script = ExtResource("2_jdn1i")

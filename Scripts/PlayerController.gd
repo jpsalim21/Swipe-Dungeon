@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	if not timer.is_stopped():
 		return
-		
+	
 	dirMoving = dir
 	playerUnits.sort_custom(sortCustom)
 	for p in playerUnits:

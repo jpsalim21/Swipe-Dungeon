@@ -6,7 +6,6 @@ extends Node2D
 
 const euler = 2.71828
 
-
 func _ready() -> void:
 	game_controller.playerEndTurn.connect(recalculate)
 

@@ -13,9 +13,7 @@ A fazer:
 	Desenhar pedras para o cenário
 
 Fazendo:
-	Corrigir ataque da espada
-
+	
 
 Feito:
-	Adicionar animação para ataque do guerreiro
-	Adicionar efeito visual para morte de personagem
+	

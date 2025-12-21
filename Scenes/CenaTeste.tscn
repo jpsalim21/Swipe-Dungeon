@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=28 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="Texture2D" uid="uid://dq2b2hceowthd" path="res://Sprites/Placeholder/tileset_gray.png" id="1_6iqmv"]
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
-[ext_resource type="PackedScene" uid="uid://r7dvnv5aydjf" path="res://ObjectScenes/PlayerBase.tscn" id="3_ede5x"]
 [ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Grid/Gridmap.gd" id="3_yt05o"]
 [ext_resource type="Script" uid="uid://lhul2apwhdhl" path="res://Scripts/PlayerController.gd" id="4_fy507"]
+[ext_resource type="PackedScene" uid="uid://jqbj44sg2mek" path="res://ObjectScenes/Wizard.tscn" id="5_myfth"]
 [ext_resource type="Texture2D" uid="uid://bbmh7hbv6i2w7" path="res://Sprites/Crystal.png" id="5_rjybr"]
 [ext_resource type="Texture2D" uid="uid://caomrp1fdogon" path="res://Sprites/EnemyPlaceholder.png" id="5_yt05o"]
 [ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="7_hlfcp"]
@@ -167,6 +167,9 @@ bg_color = Color(0, 0, 0, 1)
 shader = ExtResource("13_myfth")
 shader_parameter/branco = false
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7y3am"]
+size = Vector2(14, 14)
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
@@ -191,8 +194,8 @@ playerUnits = [NodePath("../PlayerController/Player2"), NodePath("../PlayerContr
 y_sort_enabled = true
 script = ExtResource("4_fy507")
 
-[node name="Player" parent="PlayerController" instance=ExtResource("3_ede5x")]
-position = Vector2(-8, 8)
+[node name="Player" parent="PlayerController" instance=ExtResource("5_myfth")]
+position = Vector2(9, 9)
 
 [node name="Player2" parent="PlayerController" instance=ExtResource("9_sim72")]
 position = Vector2(-24, 41)
@@ -250,6 +253,11 @@ texture = ExtResource("5_yt05o")
 offset = Vector2(0, -5)
 
 [node name="Timer" type="Timer" parent="EnemyController/Enemy"]
+
+[node name="Area2D" type="Area2D" parent="EnemyController/Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyController/Enemy/Area2D"]
+shape = SubResource("RectangleShape2D_7y3am")
 
 [node name="Timer" type="Timer" parent="EnemyController"]
 one_shot = true

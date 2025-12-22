@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=30 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="Texture2D" uid="uid://dq2b2hceowthd" path="res://Sprites/Placeholder/tileset_gray.png" id="1_6iqmv"]
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dobd4ghii3kq1" path="res://icon.svg" id="11_5gdr1"]
 [ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/EnemyController.gd" id="13_a3s4c"]
 [ext_resource type="Shader" uid="uid://dr1ydyoitexet" path="res://Shader/BlinkShader.gdshader" id="13_myfth"]
+[ext_resource type="PackedScene" uid="uid://clqiaxjkujys3" path="res://ObjectScenes/botao.tscn" id="15_7y3am"]
+[ext_resource type="PackedScene" uid="uid://dxtocmcryqnvc" path="res://ObjectScenes/Porta.tscn" id="16_j6cyg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ede5x"]
 texture = ExtResource("1_6iqmv")
@@ -261,3 +263,10 @@ shape = SubResource("RectangleShape2D_7y3am")
 
 [node name="Timer" type="Timer" parent="EnemyController"]
 one_shot = true
+
+[node name="Botao" parent="." instance=ExtResource("15_7y3am")]
+position = Vector2(56, 32)
+
+[node name="Porta" parent="." node_paths=PackedStringArray("botoes") instance=ExtResource("16_j6cyg")]
+position = Vector2(88, 71)
+botoes = [NodePath("../Botao")]

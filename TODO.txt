@@ -3,10 +3,7 @@ A fazer:
 	Criar cena inicial
 	
 	Adicionar arqueiro
-	Adicionar ataque do mago
-	Adicionar botão para abrir porta
 	Adicionar restart
-	Adicionar porta
 	
 	Adicionar inimigo diferente
 	
@@ -16,4 +13,3 @@ Fazendo:
 	
 
 Feito:
-	

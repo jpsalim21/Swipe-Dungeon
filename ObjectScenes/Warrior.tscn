@@ -103,6 +103,7 @@ script = ExtResource("3_3r4et")
 playerUnit = NodePath("..")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AtaqueEspada" index="0"]
+z_index = 2
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_bi0p8")
 animation = &"Attack"

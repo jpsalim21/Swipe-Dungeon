@@ -33,6 +33,7 @@ func estavaOcupado(value : Vector2i):
 	pass
 
 func _ready() -> void:
+	if not tilemap: tilemap = get_node("/root/Node2D/tilemap")
 	setTileAtual(tilemap.local_to_map(global_position))
 
 func takeDmg():

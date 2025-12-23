@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=29 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
 [ext_resource type="TileSet" uid="uid://b3udu42yktg3b" path="res://Sprites/Tilesets/Complemento.tres" id="3_j6cyg"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://sto30ttoge7x" path="res://ObjectScenes/Pillar.tscn" id="7_525dc"]
 [ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="7_hlfcp"]
 [ext_resource type="Script" uid="uid://byasqch4yx7m0" path="res://Scripts/Units/EnemyBaseScript.gd" id="7_i802y"]
+[ext_resource type="PackedScene" uid="uid://cu6eya3c2j6i" path="res://ObjectScenes/pot.tscn" id="8_0tvod"]
 [ext_resource type="PackedScene" uid="uid://cef5oyggjgvha" path="res://ObjectScenes/Warrior.tscn" id="9_sim72"]
 [ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="10_uk6nu"]
+[ext_resource type="AudioStream" uid="uid://10feo1a35kfh" path="res://Sound/08_Step_rock_02.wav" id="11_vkoo2"]
 [ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/EnemyController.gd" id="13_a3s4c"]
 [ext_resource type="Shader" uid="uid://dr1ydyoitexet" path="res://Shader/BlinkShader.gdshader" id="13_myfth"]
 [ext_resource type="PackedScene" uid="uid://clqiaxjkujys3" path="res://ObjectScenes/botao.tscn" id="15_7y3am"]
@@ -190,6 +192,15 @@ position = Vector2(71, 230)
 [node name="Node2D9" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
 position = Vector2(152, 213)
 
+[node name="Pot" parent="SceneObjects" instance=ExtResource("8_0tvod")]
+position = Vector2(24, 41)
+
+[node name="Pot2" parent="SceneObjects" instance=ExtResource("8_0tvod")]
+position = Vector2(72, 106)
+
+[node name="Pot3" parent="SceneObjects" instance=ExtResource("8_0tvod")]
+position = Vector2(103, 201)
+
 [node name="PlayerController" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("4_fy507")
@@ -201,6 +212,9 @@ position = Vector2(9, 9)
 position = Vector2(-24, 41)
 
 [node name="Timer" type="Timer" parent="PlayerController"]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="PlayerController"]
+stream = ExtResource("11_vkoo2")
 
 [node name="CameraAnchor" type="Node2D" parent="." node_paths=PackedStringArray("elementos")]
 script = ExtResource("10_uk6nu")
@@ -236,8 +250,10 @@ one_shot = true
 unique_name_in_owner = true
 script = ExtResource("7_hlfcp")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameController"]
+[node name="CoinAudio" type="AudioStreamPlayer" parent="GameController"]
 stream = ExtResource("17_ac0yj")
+
+[node name="Timer" type="Timer" parent="GameController"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -264,3 +280,7 @@ theme_override_font_sizes/font_size = 40
 text = "- 10"
 vertical_alignment = 1
 script = ExtResource("18_gumlf")
+
+[editable path="SceneObjects/Pot"]
+[editable path="SceneObjects/Pot2"]
+[editable path="SceneObjects/Pot3"]

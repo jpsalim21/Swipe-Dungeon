@@ -2,15 +2,10 @@ A fazer:
 	Adicionar arqueiro
 	Adicionar inimigo diferente
 
-
-
 Fazendo:
 	Adicionar som
-	Criar cena inicial
+	Criar menu inicial
 	Adicionar fim de fase
 
 Feito:
-	Corrigir questão dos pilares
-	Adicionar restart
-	Fazer HUD
-	Desenhar pedras para o cenário
+	

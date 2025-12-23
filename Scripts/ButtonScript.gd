@@ -5,6 +5,9 @@ signal pressionado(botao : TileButton)
 
 @onready var tilemap: Gridmap = %tilemap
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+
+var pressed : bool = false
 
 var tilePos : Vector2i:
 	set(value):
@@ -18,6 +21,9 @@ func _ready() -> void:
 
 
 func playerUnitEntrou():
+	if pressed:
+		return
+	pressed = true
 	sprite.play("Pressed")
 	pressionado.emit(self as TileButton)
-	print("Botão pressionado!")
+	audio.play()

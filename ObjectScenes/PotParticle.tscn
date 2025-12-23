@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://wx2g2e5vxkdo"]
+
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="1_ddcd3"]
+[ext_resource type="AudioStream" uid="uid://b02hybqt7gawo" path="res://Sound/vaseBreaking.wav" id="2_k5xxh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5xxh"]
+atlas = ExtResource("1_ddcd3")
+region = Rect2(64, 24, 8, 8)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_k5xxh")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+use_fixed_seed = true
+seed = 226763629
+direction = Vector2(0, -1)
+spread = 20.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k5xxh")
+autoplay = true

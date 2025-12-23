@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var game_controller: GameController = %GameController
 @onready var timer: Timer = $Timer
+@onready var walk_sound: AudioStreamPlayer = $WalkSound
 
 var playerUnits : Array[PlayerUnit] = []
 
@@ -45,6 +46,7 @@ func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	timer.start(0.3)
 	await timer.timeout
 	timer.stop()
+	walk_sound.play()
 	game_controller.playerEndTurn.emit()
 	esperando = true
 

@@ -6,11 +6,15 @@ static var DIE_PARTICLE = preload("uid://b32176hy2txb4")
 @onready var timer: Timer = $Timer
 @onready var area_2d: Area2D = $Area2D
 
+var morrendo : bool = false
+
 func _ready() -> void:
 	super._ready()
 	area_2d.area_entered.connect(entrouArea)
 
 func doTurn():
+	if morrendo:
+		return
 	setTileAtual(tilemap.getNextTile(_tileAtual))
 
 func estavaOcupado(value : Vector2i):
@@ -30,9 +34,12 @@ func entrouArea(_area : Area2D):
 	die()
 
 func die():
+	morrendo = true
+	visible = false
 	var particula : CPUParticles2D = DIE_PARTICLE.instantiate() as CPUParticles2D
 	get_tree().current_scene.add_child(particula)
 	particula.global_position = global_position
 	particula.emitting = true
-	print("Instanciei a particula")
+	await particula.finished
+	particula.queue_free()
 	queue_free()

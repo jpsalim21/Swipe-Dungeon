@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://r7dvnv5aydjf"]
+[gd_scene load_steps=12 format=3 uid="uid://r7dvnv5aydjf"]
 
 [ext_resource type="Script" uid="uid://cl46uvvmo1ipo" path="res://Scripts/Units/PlayerScript.gd" id="1_15ixf"]
 [ext_resource type="Texture2D" uid="uid://b33xlevpxyb2y" path="res://Sprites/Mago.png" id="2_5jq54"]
@@ -100,8 +100,36 @@ tracks/1/keys = {
 "values": [Vector2(0, 3)]
 }
 
+[sub_resource type="Animation" id="Animation_15ixf"]
+resource_name = "Die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(0, -2.5), Vector2(0, 30.225)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.53, 0.53)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rjybr"]
 _data = {
+&"Die": SubResource("Animation_15ixf"),
 &"Idle": SubResource("Animation_rvl5l"),
 &"Move": SubResource("Animation_6iqmv"),
 &"RESET": SubResource("Animation_ede5x")

@@ -11,7 +11,7 @@ func _ready() -> void:
 	area_2d.area_entered.connect(entrouArea)
 
 func doTurn():
-	tileAtual = tilemap.getNextTile(tileAtual)
+	setTileAtual(tilemap.getNextTile(_tileAtual))
 
 func estavaOcupado(value : Vector2i):
 	var playerUnit : PlayerUnit = tilemap.getUnit(value) as PlayerUnit
@@ -26,7 +26,7 @@ func takeDmg():
 	
 	die()
 
-func entrouArea(area : Area2D):
+func entrouArea(_area : Area2D):
 	die()
 
 func die():

@@ -8,7 +8,7 @@ func _ready() -> void:
 	playerUnit.travouMovimento.connect(atacar)
 
 func atacar(dir : Vector2i):
-	var tileAlvo : Vector2i = playerUnit.tileAtual + dir
+	var tileAlvo : Vector2i = playerUnit._tileAtual + dir
 	playerUnit.tilemap.causeDmg(tileAlvo, true)
 	if dir.x != 0:
 		sprite.rotation_degrees = 0
@@ -24,4 +24,5 @@ func atacar(dir : Vector2i):
 		playerUnit.tilemap.causeDmg(tileAlvo, true)
 		tileAlvo.x -= 2
 		playerUnit.tilemap.causeDmg(tileAlvo, true)
+	sprite.stop()
 	sprite.play("Attack")

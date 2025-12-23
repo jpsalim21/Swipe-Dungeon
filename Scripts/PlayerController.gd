@@ -1,3 +1,4 @@
+class_name PlayerController
 extends Node2D
 
 @onready var game_controller: GameController = %GameController
@@ -14,6 +15,7 @@ func _ready() -> void:
 		if c is not PlayerUnit:
 			continue
 		playerUnits.append(c as PlayerUnit)
+		c.playerController = self as PlayerController
 	game_controller.enemyEndTurn.connect(pararDeEsperar)
 
 func pararDeEsperar():
@@ -47,7 +49,7 @@ func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	esperando = true
 
 func sortCustom(a : PlayerUnit, b : PlayerUnit):
-	var diff : Vector2i = a.tileAtual - b.tileAtual
+	var diff : Vector2i = a._tileAtual - b._tileAtual
 	if dirMoving.x > 0:
 		if diff.x > 0:
 			return true
@@ -68,3 +70,7 @@ func sortCustom(a : PlayerUnit, b : PlayerUnit):
 			return true
 		else:
 			return false
+
+func unitMorreu(unit : PlayerUnit):
+	SceneController.setPositionFocus(unit.global_position)
+	SceneController.reloadCurrentScene()

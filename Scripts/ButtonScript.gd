@@ -1,7 +1,7 @@
 class_name TileButton
 extends Node2D
 
-signal pressionado
+signal pressionado(botao : TileButton)
 
 @onready var tilemap: Gridmap = %tilemap
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -19,5 +19,5 @@ func _ready() -> void:
 
 func playerUnitEntrou():
 	sprite.play("Pressed")
-	pressionado.emit()
+	pressionado.emit(self as TileButton)
 	print("Botão pressionado!")

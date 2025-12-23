@@ -12,10 +12,11 @@ func _ready() -> void:
 	for b in botoes:
 		b.pressionado.connect(botaoApertado)
 
-func botaoApertado():
+func botaoApertado(b : TileButton):
+	b.pressionado.disconnect(botaoApertado)
 	contagem -= 1
 	if contagem <= 0:
-		tilemap.map[tileAtual].unit = null
+		tilemap.map[_tileAtual].unit = null
 		var tween : Tween = create_tween()
 		tween.tween_property(sprite, "scale", Vector2.ZERO, 1.0).set_trans(Tween.TRANS_ELASTIC)
 		await tween.finished

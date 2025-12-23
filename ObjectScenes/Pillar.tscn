@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://sto30ttoge7x"]
+
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="1_6trls"]
+[ext_resource type="Script" uid="uid://c4lwv4ef0v3qm" path="res://Scripts/PillarScript.gd" id="2_0ng53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ng53"]
+atlas = ExtResource("1_6trls")
+region = Rect2(80, 0, 16, 32)
+
+[node name="Pilar" type="Sprite2D"]
+texture = SubResource("AtlasTexture_0ng53")
+offset = Vector2(0, -10)
+script = ExtResource("2_0ng53")

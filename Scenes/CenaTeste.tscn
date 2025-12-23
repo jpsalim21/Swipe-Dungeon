@@ -1,96 +1,28 @@
-[gd_scene load_steps=30 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=27 format=4 uid="uid://dwfkpmtjc67xr"]
 
-[ext_resource type="Texture2D" uid="uid://dq2b2hceowthd" path="res://Sprites/Placeholder/tileset_gray.png" id="1_6iqmv"]
 [ext_resource type="Texture2D" uid="uid://dbhmctndha1wc" path="res://Sprites/Tileset.png" id="2_ede5x"]
+[ext_resource type="TileSet" uid="uid://b3udu42yktg3b" path="res://Sprites/Tilesets/Complemento.tres" id="3_j6cyg"]
 [ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Grid/Gridmap.gd" id="3_yt05o"]
 [ext_resource type="Script" uid="uid://lhul2apwhdhl" path="res://Scripts/PlayerController.gd" id="4_fy507"]
 [ext_resource type="PackedScene" uid="uid://jqbj44sg2mek" path="res://ObjectScenes/Wizard.tscn" id="5_myfth"]
-[ext_resource type="Texture2D" uid="uid://bbmh7hbv6i2w7" path="res://Sprites/Crystal.png" id="5_rjybr"]
 [ext_resource type="Texture2D" uid="uid://caomrp1fdogon" path="res://Sprites/EnemyPlaceholder.png" id="5_yt05o"]
+[ext_resource type="PackedScene" uid="uid://sto30ttoge7x" path="res://ObjectScenes/Pillar.tscn" id="7_525dc"]
 [ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="7_hlfcp"]
 [ext_resource type="Script" uid="uid://byasqch4yx7m0" path="res://Scripts/Units/EnemyBaseScript.gd" id="7_i802y"]
 [ext_resource type="PackedScene" uid="uid://cef5oyggjgvha" path="res://ObjectScenes/Warrior.tscn" id="9_sim72"]
 [ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="10_uk6nu"]
-[ext_resource type="Texture2D" uid="uid://dobd4ghii3kq1" path="res://icon.svg" id="11_5gdr1"]
 [ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/EnemyController.gd" id="13_a3s4c"]
 [ext_resource type="Shader" uid="uid://dr1ydyoitexet" path="res://Shader/BlinkShader.gdshader" id="13_myfth"]
 [ext_resource type="PackedScene" uid="uid://clqiaxjkujys3" path="res://ObjectScenes/botao.tscn" id="15_7y3am"]
+[ext_resource type="PackedScene" uid="uid://dug5igcmoath6" path="res://ObjectScenes/Coin.tscn" id="15_j6cyg"]
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="16_33awm"]
 [ext_resource type="PackedScene" uid="uid://dxtocmcryqnvc" path="res://ObjectScenes/Porta.tscn" id="16_j6cyg"]
+[ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="17_33awm"]
+[ext_resource type="AudioStream" uid="uid://bllthso4a6xl" path="res://Sound/coinSound.wav" id="17_ac0yj"]
+[ext_resource type="Script" uid="uid://b75m4aplgh5ye" path="res://Scripts/CoinLabel.gd" id="18_gumlf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ede5x"]
-texture = ExtResource("1_6iqmv")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ede5x"]
+bg_color = Color(0.26, 0.26, 0.26, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjybr"]
 texture = ExtResource("2_ede5x")
@@ -109,61 +41,7 @@ texture = ExtResource("2_ede5x")
 4:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_rvl5l"]
-sources/0 = SubResource("TileSetAtlasSource_ede5x")
 sources/1 = SubResource("TileSetAtlasSource_rjybr")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yt05o"]
-atlas = ExtResource("5_rjybr")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hlfcp"]
-atlas = ExtResource("5_rjybr")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i802y"]
-atlas = ExtResource("5_rjybr")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sim72"]
-atlas = ExtResource("5_rjybr")
-region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uk6nu"]
-atlas = ExtResource("5_rjybr")
-region = Rect2(64, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gdr1"]
-atlas = ExtResource("5_rjybr")
-region = Rect2(80, 0, 16, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fy507"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yt05o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hlfcp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i802y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sim72")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uk6nu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5gdr1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 9.0
-}]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ede5x"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7y3am"]
 shader = ExtResource("13_myfth")
@@ -172,8 +50,23 @@ shader_parameter/branco = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7y3am"]
 size = Vector2(14, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gumlf"]
+atlas = ExtResource("16_33awm")
+region = Rect2(4, 21, 8, 8)
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Panel" type="Panel" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ede5x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -187,10 +80,115 @@ editor_draw_drag_margin = true
 [node name="tilemap" type="TileMapLayer" parent="." node_paths=PackedStringArray("playerUnits")]
 unique_name_in_owner = true
 z_index = -3
-tile_map_data = PackedByteArray("AAD7//7/AQAFAAIAAAD7////AQAFAAIAAAD7/wAAAQAFAAIAAAD7/wEAAQAFAAIAAAD7/wIAAQAFAAIAAAD7/wMAAQAFAAIAAAD8//7/AQAFAAIAAAD8////AQAFAAIAAAD8/wAAAQADAAMAAAD8/wEAAQAFAAIAAAD8/wIAAQAEAAIAAAD8/wMAAQAFAAIAAAD9//7/AQAEAAIAAAD9////AQAFAAIAAAD9/wAAAQAFAAIAAAD9/wEAAQACAAMAAAD9/wIAAQAFAAIAAAD9/wMAAQAFAAIAAAD+//7/AQAFAAIAAAD+////AQACAAIAAAD+/wAAAQAFAAIAAAD+/wEAAQAFAAIAAAD+/wIAAQAFAAIAAAD+/wMAAQADAAIAAAD///7/AQAFAAIAAAD/////AQAFAAIAAAD//wAAAQAFAAIAAAD//wEAAQAFAAIAAAD//wIAAQAFAAIAAAD//wMAAQAFAAIAAAAAAP7/AQAEAAMAAAAAAP//AQAFAAIAAAAAAAAAAQAFAAIAAAAAAAEAAQAAAAMAAAAAAAIAAQAFAAIAAAAAAAMAAQAEAAMAAAABAP7/AQAFAAIAAAABAP//AQAFAAIAAAABAAAAAQACAAIAAAABAAEAAQAFAAIAAAABAAIAAQAFAAIAAAABAAMAAQAFAAIAAAACAP7/AQAFAAIAAAACAP//AQAFAAIAAAACAAAAAQAFAAIAAAACAAEAAQAFAAIAAAACAAIAAQAEAAMAAAACAAMAAQAFAAIAAAADAP7/AQAFAAIAAAADAP//AQAFAAIAAAADAAAAAQAAAAIAAAADAAEAAQAFAAIAAAADAAIAAQAFAAIAAAADAAMAAQAFAAIAAAAEAAAAAQAFAAIAAAAFAAAAAQAFAAIAAAAGAAAAAQAFAAIAAAAHAAAAAQAFAAIAAAAHAAEAAQAFAAIAAAAHAAIAAQAFAAIAAAAHAAMAAQAFAAIAAAAGAAMAAQAFAAIAAAAFAAMAAQAFAAIAAAAFAAIAAQAFAAIAAAAFAAEAAQAFAAIAAAAGAAEAAQAFAAIAAAAEAAIAAQAFAAIAAAAEAAEAAQAFAAIAAAAEAAMAAQAFAAIAAAAGAAIAAQAFAAIAAAAFAAQAAQAFAAIAAAAFAAUAAQAFAAIAAAAFAAYAAQAFAAIAAAAEAAYAAQAFAAIAAAADAAYAAQAFAAIAAAAGAAYAAQAFAAIAAAAHAAYAAQAFAAIAAAAHAAcAAQAFAAIAAAAHAAgAAQAFAAIAAAAGAAgAAQAFAAIAAAAFAAgAAQAFAAIAAAAFAAcAAQAFAAIAAAAGAAcAAQAFAAIAAAAEAAcAAQAFAAIAAAADAAcAAQAFAAIAAAADAAgAAQAFAAIAAAADAAkAAQAFAAIAAAAEAAkAAQAFAAIAAAAFAAkAAQAFAAIAAAAGAAkAAQAFAAIAAAAEAAgAAQAFAAIAAAAHAAkAAQAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAD7//7/AQAFAAIAAAD7////AQAFAAIAAAD7/wAAAQAFAAIAAAD7/wEAAQAFAAIAAAD7/wIAAQAFAAIAAAD7/wMAAQAFAAIAAAD8//7/AQAFAAIAAAD8////AQAFAAIAAAD8/wAAAQADAAMAAAD8/wEAAQAFAAIAAAD8/wIAAQAEAAIAAAD8/wMAAQAFAAIAAAD9//7/AQAEAAIAAAD9////AQAFAAIAAAD9/wAAAQAFAAIAAAD9/wEAAQACAAMAAAD9/wIAAQAFAAIAAAD9/wMAAQAFAAIAAAD+//7/AQAFAAIAAAD+/wAAAQAFAAIAAAD+/wEAAQAFAAIAAAD+/wIAAQAFAAIAAAD+/wMAAQADAAIAAAD///7/AQAFAAIAAAD/////AQAFAAIAAAD//wAAAQAFAAIAAAD//wEAAQAFAAIAAAD//wIAAQAFAAIAAAD//wMAAQAFAAIAAAAAAP7/AQAEAAMAAAAAAP//AQAFAAIAAAAAAAAAAQAFAAIAAAAAAAEAAQAAAAMAAAAAAAIAAQAFAAIAAAAAAAMAAQAEAAMAAAABAP7/AQAFAAIAAAABAP//AQAFAAIAAAABAAAAAQACAAIAAAABAAEAAQAFAAIAAAABAAIAAQAFAAIAAAABAAMAAQAFAAIAAAACAP7/AQAFAAIAAAACAP//AQAFAAIAAAACAAAAAQAFAAIAAAACAAIAAQAEAAMAAAACAAMAAQAFAAIAAAADAP7/AQAFAAIAAAADAP//AQAFAAIAAAADAAAAAQAAAAIAAAADAAEAAQAFAAIAAAADAAIAAQAFAAIAAAADAAMAAQAFAAIAAAAEAAAAAQAFAAIAAAAFAAAAAQAFAAIAAAAGAAAAAQAFAAIAAAAHAAAAAQAFAAIAAAAHAAEAAQAFAAIAAAAHAAIAAQAFAAIAAAAHAAMAAQAFAAIAAAAGAAMAAQAFAAIAAAAFAAMAAQAFAAIAAAAFAAEAAQAFAAIAAAAGAAEAAQAFAAIAAAAEAAIAAQAFAAIAAAAEAAEAAQAFAAIAAAAEAAMAAQAFAAIAAAAGAAIAAQAFAAIAAAAFAAQAAQAFAAIAAAAFAAUAAQAFAAIAAAAFAAYAAQAFAAIAAAAEAAYAAQAFAAIAAAADAAYAAQAFAAIAAAAGAAYAAQAFAAIAAAAHAAYAAQAFAAIAAAAHAAcAAQAFAAIAAAAHAAgAAQAFAAIAAAAGAAgAAQAFAAIAAAAFAAcAAQAFAAIAAAAGAAcAAQAFAAIAAAAEAAcAAQAFAAIAAAADAAcAAQAFAAIAAAADAAgAAQAFAAIAAAADAAkAAQAFAAIAAAAEAAkAAQAFAAIAAAAFAAkAAQAFAAIAAAAGAAkAAQAFAAIAAAAEAAgAAQAFAAIAAAAHAAkAAQAFAAIAAAAFAAoAAQAEAAMAAAAFAAsAAQAFAAIAAAAFAAwAAQAEAAMAAAAEAAsAAQABAAMAAAAEAAwAAQAEAAIAAAAGAAwAAQAAAAIAAAAGAAsAAQAAAAMAAAAHAAsAAQAFAAIAAAAHAAwAAQABAAMAAAAHAA0AAQADAAIAAAAGAA0AAQAEAAIAAAADAAwAAQAEAAIAAAADAAsAAQABAAMAAAADAA0AAQAAAAIAAAAEAA0AAQABAAMAAAAFAA0AAQAFAAIAAAACAAsAAQACAAMAAAABAAsAAQAEAAIAAAAAAAsAAQAEAAIAAAD//wsAAQABAAMAAAD+/wsAAQADAAIAAAD9/wsAAQAAAAMAAAD9/wwAAQAFAAIAAAD9/w0AAQADAAIAAAD8/w0AAQACAAMAAAD9/w4AAQADAAIAAAD9/w8AAQAEAAIAAAD+/w8AAQADAAIAAAD+/w4AAQAAAAMAAAD+/w0AAQAEAAIAAAD+/wwAAQADAAIAAAD//w8AAQACAAMAAAD//w4AAQAEAAIAAAD//w0AAQAFAAIAAAAAAA4AAQAAAAIAAAAAAA8AAQAAAAIAAAAAAA0AAQAFAAIAAAAAAAwAAQABAAMAAAABAAwAAQACAAMAAAABAA0AAQAFAAIAAAABAA4AAQABAAMAAAABAA8AAQAFAAIAAAACAA4AAQACAAIAAAACAA0AAQACAAIAAAACAAwAAQAAAAMAAAACAA8AAQABAAIAAAADAA8AAQAAAAIAAAAFAA4AAQACAAMAAAAGAA4AAQAEAAIAAAAGAA8AAQADAAIAAAAFAA8AAQABAAIAAAAEAA8AAQAEAAIAAAADAA4AAQAEAAMAAAAHAA4AAQADAAIAAAAHAA8AAQADAAMAAAD8/w4AAQAAAAIAAAD8/w8AAQABAAIAAAD8/wwAAQACAAIAAAAIAAwAAQAEAAMAAAAJAAwAAQAAAAMAAAAKAAwAAQABAAMAAAAKAA0AAQABAAIAAAAKAA4AAQAAAAIAAAAJAA4AAQABAAMAAAAIAA4AAQAAAAIAAAAIAA0AAQADAAMAAAAKAA8AAQAAAAMAAAAKABAAAQADAAMAAAAKABEAAQADAAIAAAD9/woAAQAAAAIAAAD9/wkAAQACAAIAAAD9/wgAAQADAAIAAAD9/wcAAQABAAIAAAD8/wcAAQAAAAIAAAD7/wcAAQACAAMAAAD8/wgAAQACAAMAAAD8/wkAAQABAAMAAAD8/woAAQAAAAMAAAD7/wkAAQACAAMAAAD7/woAAQAAAAIAAAD7/wsAAQACAAIAAAD7/wwAAQAAAAMAAAD6/wsAAQABAAMAAAD6/woAAQADAAIAAAD6/wkAAQAAAAMAAAD6/wgAAQACAAMAAAD6/wcAAQADAAMAAAD6/wwAAQADAAMAAAALABEAAQAFAAIAAAA=")
 tile_set = SubResource("TileSet_rvl5l")
 script = ExtResource("3_yt05o")
 playerUnits = [NodePath("../PlayerController/Player2"), NodePath("../PlayerController/Player")]
+
+[node name="SceneObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Coins" type="Node2D" parent="SceneObjects"]
+
+[node name="Coin" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(-56, 41)
+
+[node name="Coin11" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(88, 90)
+
+[node name="Coin12" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(88, 109)
+
+[node name="Coin13" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(72, 124)
+
+[node name="Coin14" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(72, 140)
+
+[node name="Coin2" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(73, 25)
+
+[node name="Coin3" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(121, 57)
+
+[node name="Coin4" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(88, 121)
+
+[node name="Coin5" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(39, 201)
+
+[node name="Coin6" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(-87, 200)
+
+[node name="Coin7" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(-72, 154)
+
+[node name="Coin8" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(120, 234)
+
+[node name="Coin9" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(8, 250)
+
+[node name="Coin10" parent="SceneObjects/Coins" instance=ExtResource("15_j6cyg")]
+position = Vector2(-25, 218)
+
+[node name="Porta" parent="SceneObjects" node_paths=PackedStringArray("botoes") instance=ExtResource("16_j6cyg")]
+position = Vector2(88, 71)
+botoes = [NodePath("../Botao")]
+
+[node name="Porta2" parent="SceneObjects" node_paths=PackedStringArray("botoes") instance=ExtResource("16_j6cyg")]
+position = Vector2(168, 248)
+botoes = [NodePath("../Botao2"), NodePath("../Botao3"), NodePath("../Botao4")]
+
+[node name="Botao" parent="SceneObjects" instance=ExtResource("15_7y3am")]
+position = Vector2(56, 32)
+
+[node name="Botao2" parent="SceneObjects" instance=ExtResource("15_7y3am")]
+position = Vector2(104, 233)
+
+[node name="Botao3" parent="SceneObjects" instance=ExtResource("15_7y3am")]
+position = Vector2(-56, 154)
+
+[node name="Botao4" parent="SceneObjects" instance=ExtResource("15_7y3am")]
+position = Vector2(-24, 232)
+
+[node name="TilemapsCenario" type="Node2D" parent="SceneObjects"]
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SceneObjects/TilemapsCenario"]
+z_index = -2
+tile_map_data = PackedByteArray("AAD7/wQAAAAHAAEAAAD8/wQAAAAHAAEAAAD9/wQAAAAHAAEAAAD+/wQAAAAHAAEAAAD//wQAAAAHAAEAAAAAAAQAAAAHAAEAAAABAAQAAAAHAAEAAAACAAQAAAAHAAEAAAADAAQAAAAHAAEAAAAEAAQAAAAHAAEAAAAGAAQAAAAHAAEAAAAHAAQAAAAHAAEAAAAEAAoAAAAHAAEAAAADAAoAAAAHAAEAAAAGAAoAAAAHAAEAAAAHAAoAAAAHAAEAAAD7/w0AAAAHAAEAAAD6/w0AAAAHAAEAAAD8/xAAAAAHAAEAAAD9/xAAAAAHAAEAAAD+/xAAAAAHAAEAAAD//xAAAAAHAAEAAAAAABAAAAAHAAEAAAABABAAAAAHAAEAAAACABAAAAAHAAEAAAADABAAAAAHAAEAAAAEABAAAAAHAAEAAAAFABAAAAAHAAEAAAAGABAAAAAHAAEAAAAHABAAAAAHAAEAAAAIAA8AAAAHAAEAAAAJAA8AAAAHAAEAAAALABAAAAAGAAAAAAALABEAAAAGAAEAAAAEAA4AAQAFAAIAAAAJAA0AAQAFAAIAAAD//wwAAQAFAAIAAAD8/wsAAQAFAAIAAAD7/wgAAQAFAAIAAAAFAAgAAQAFAAIAAAAFAAIAAQAFAAIAAAACAAEAAQAFAAIAAAD+////AQAFAAIAAAA=")
+tile_set = ExtResource("3_j6cyg")
+
+[node name="Pilares" type="Node2D" parent="SceneObjects"]
+y_sort_enabled = true
+
+[node name="Node2D" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(-24, -9)
+
+[node name="Node2D2" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(41, 23)
+
+[node name="Node2D3" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(91, 40)
+
+[node name="Node2D4" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(87, 134)
+
+[node name="Node2D5" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(-72, 136)
+
+[node name="Node2D6" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(-55, 185)
+
+[node name="Node2D7" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(-8, 197)
+
+[node name="Node2D8" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(71, 230)
+
+[node name="Node2D9" parent="SceneObjects/Pilares" instance=ExtResource("7_525dc")]
+position = Vector2(152, 213)
 
 [node name="PlayerController" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -210,36 +208,6 @@ elementos = [NodePath("../PlayerController/Player"), NodePath("../PlayerControll
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CameraAnchor"]
 remote_path = NodePath("../../Camera2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="CameraAnchor"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("11_5gdr1")
-
-[node name="Crystal" type="Node2D" parent="."]
-visible = false
-position = Vector2(24, 8)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crystal"]
-y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_fy507")
-autoplay = "default"
-frame_progress = 0.8856808
-offset = Vector2(0, -10)
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Panel" type="Panel" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ede5x")
-
-[node name="GameController" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("7_hlfcp")
 
 [node name="EnemyController" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -264,9 +232,35 @@ shape = SubResource("RectangleShape2D_7y3am")
 [node name="Timer" type="Timer" parent="EnemyController"]
 one_shot = true
 
-[node name="Botao" parent="." instance=ExtResource("15_7y3am")]
-position = Vector2(56, 32)
+[node name="GameController" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_hlfcp")
 
-[node name="Porta" parent="." node_paths=PackedStringArray("botoes") instance=ExtResource("16_j6cyg")]
-position = Vector2(88, 71)
-botoes = [NodePath("../Botao")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameController"]
+stream = ExtResource("17_ac0yj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 9.0
+offset_right = 58.0
+offset_bottom = 49.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gumlf")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("17_33awm")
+theme_override_font_sizes/font_size = 40
+text = "- 10"
+vertical_alignment = 1
+script = ExtResource("18_gumlf")

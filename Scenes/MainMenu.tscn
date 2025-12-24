@@ -1,0 +1,263 @@
+[gd_scene load_steps=8 format=3 uid="uid://brwp2pmag0act"]
+
+[ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="1_tt5f1"]
+[ext_resource type="Theme" uid="uid://76y5sb10ipj3" path="res://MainTheme.tres" id="2_853f1"]
+[ext_resource type="Script" uid="uid://kvrl1rnft3tk" path="res://Scripts/UI/CreditsTextLabel.gd" id="3_8saeu"]
+[ext_resource type="Script" uid="uid://8gjjoehytcbf" path="res://Scripts/UI/OptionsScript.gd" id="3_df05h"]
+[ext_resource type="Script" uid="uid://b3nb4nh4vf713" path="res://Scripts/UI/CreditsScript.gd" id="3_ghw46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853f1"]
+bg_color = Color(0.25, 0.1125, 0.1125, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+bg_color = Color(0.14, 0.14, 0.14, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_853f1")
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 49
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_tt5f1")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]Swipe Dungeon:
+
+Curse of the [shake level=20 rate=20]mad man[/shake][/center]"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="PlayButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_853f1")
+text = "Jogar"
+
+[node name="ConfigButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_853f1")
+theme_override_font_sizes/font_size = 30
+text = "Configurações"
+
+[node name="CreditButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_853f1")
+theme_override_font_sizes/font_size = 30
+text = "Créditos"
+
+[node name="QuitButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_853f1")
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+
+[node name="Options" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
+script = ExtResource("3_df05h")
+
+[node name="Panel2" type="Panel" parent="Options"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/Panel2/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+text = "Options
+"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+text = "Resolution:"
+
+[node name="OptionButton" type="OptionButton" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+text = "Window mode:"
+
+[node name="OptionButton2" type="OptionButton" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+text = "
+Master sound:"
+
+[node name="SoundSlider" type="HSlider" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+
+[node name="Label2" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+text = "Music:"
+
+[node name="MusicSlider" type="HSlider" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+
+[node name="Label3" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+text = "SFX:"
+
+[node name="SFXSlider" type="HSlider" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+
+[node name="Label5" type="Label" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 40
+
+[node name="Button" type="Button" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_853f1")
+text = "Voltar"
+
+[node name="Credits" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
+script = ExtResource("3_ghw46")
+
+[node name="Panel2" type="Panel" parent="Credits"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_tt5f1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Programação:
+	João Pedro Miranda Salim
+
+Artes:
+	João Pedro Miranda Salim
+
+Sons:
+	[url]https://cyrex-studios.itch.io/universal-ui-soundpack[/url]
+	[url]https://leohpaz.itch.io/rpg-essentials-sfx-free[/url]
+	[url]https://tuna.voicemod.net/sound/4c2439df-1da8-420d-8fd2-6a0ea982ffa4[/url]
+	[url]https://hunteraudio.itch.io/8bit-sfx-and-music-pack[/url]
+"
+script = ExtResource("3_8saeu")
+
+[node name="Button" type="Button" parent="Credits/Panel2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.25
+offset_top = -85.0
+offset_right = 105.25
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_853f1")
+text = "Voltar"

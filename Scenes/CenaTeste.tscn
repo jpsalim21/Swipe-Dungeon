@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dxtocmcryqnvc" path="res://ObjectScenes/Porta.tscn" id="16_j6cyg"]
 [ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="17_33awm"]
 [ext_resource type="AudioStream" uid="uid://bllthso4a6xl" path="res://Sound/coinSound.wav" id="17_ac0yj"]
-[ext_resource type="Script" uid="uid://b75m4aplgh5ye" path="res://Scripts/CoinLabel.gd" id="18_gumlf"]
+[ext_resource type="Script" uid="uid://b75m4aplgh5ye" path="res://Scripts/UI/CoinLabel.gd" id="18_gumlf"]
 [ext_resource type="AudioStream" uid="uid://dxo140ppp77lf" path="res://Sound/MusicFase.wav" id="23_pef5k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ede5x"]

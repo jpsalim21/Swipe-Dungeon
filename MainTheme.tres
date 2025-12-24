@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://76y5sb10ipj3"]
+
+[ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="1_4as0w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4as0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+content_margin_top = 5.0
+content_margin_bottom = 15.0
+bg_color = Color(0.76, 0.76, 0.76, 1)
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt5f1"]
+content_margin_top = 5.0
+content_margin_bottom = 15.0
+bg_color = Color(0.53, 0.53, 0.53, 1)
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853f1"]
+bg_color = Color(0.53, 0.53, 0.53, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_4as0w")
+Button/styles/focus = SubResource("StyleBoxEmpty_4as0w")
+Button/styles/hover = SubResource("StyleBoxFlat_8saeu")
+Button/styles/normal = SubResource("StyleBoxFlat_tt5f1")
+Button/styles/pressed = SubResource("StyleBoxFlat_853f1")

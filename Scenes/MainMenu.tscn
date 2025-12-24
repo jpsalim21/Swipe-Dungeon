@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://brwp2pmag0act"]
+[gd_scene load_steps=9 format=3 uid="uid://brwp2pmag0act"]
 
+[ext_resource type="Script" uid="uid://catvk2jtw7nya" path="res://Scripts/MainMenuScript.gd" id="1_8um5k"]
 [ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="1_tt5f1"]
 [ext_resource type="Theme" uid="uid://76y5sb10ipj3" path="res://MainTheme.tres" id="2_853f1"]
 [ext_resource type="Script" uid="uid://kvrl1rnft3tk" path="res://Scripts/UI/CreditsTextLabel.gd" id="3_8saeu"]
@@ -45,6 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 49
 alignment = 1
+script = ExtResource("1_8um5k")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
 custom_minimum_size = Vector2(700, 0)
@@ -71,30 +73,31 @@ theme_override_constants/separation = 19
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("2_853f1")
-text = "Jogar"
+text = "Play"
 
 [node name="ConfigButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 30
-text = "Configurações"
+text = "Config"
 
 [node name="CreditButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 30
-text = "Créditos"
+text = "Credits"
 
 [node name="QuitButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 30
-text = "Sair"
+text = "Quit"
 
 [node name="Options" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -195,7 +198,12 @@ theme_override_font_sizes/font_size = 40
 [node name="Button" type="Button" parent="Options/Panel2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_853f1")
-text = "Voltar"
+text = "Return"
+
+[node name="QuitButton" type="Button" parent="Options/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_853f1")
+text = "Quit"
 
 [node name="Credits" type="MarginContainer" parent="."]
 visible = false
@@ -232,13 +240,13 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_tt5f1")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Programação:
+text = "Code:
 	João Pedro Miranda Salim
 
-Artes:
+Art:
 	João Pedro Miranda Salim
 
-Sons:
+Sounds:
 	[url]https://cyrex-studios.itch.io/universal-ui-soundpack[/url]
 	[url]https://leohpaz.itch.io/rpg-essentials-sfx-free[/url]
 	[url]https://tuna.voicemod.net/sound/4c2439df-1da8-420d-8fd2-6a0ea982ffa4[/url]

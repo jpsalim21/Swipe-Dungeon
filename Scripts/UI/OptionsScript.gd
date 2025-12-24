@@ -19,6 +19,7 @@ var windowModes : Array[String] = [
 @onready var sfx_slider: HSlider = $Panel2/MarginContainer/VBoxContainer/SFXSlider
 
 @onready var backButton: Button = $Panel2/MarginContainer/VBoxContainer/Button
+@onready var quit_button: Button = $Panel2/MarginContainer/VBoxContainer/QuitButton
 
 func _ready() -> void:
 	sound_slider.value_changed.connect(soundSlider)
@@ -31,6 +32,7 @@ func _ready() -> void:
 		winModeButton.add_item(key)
 	resOptionButton.item_selected.connect(setResolution)
 	winModeButton.item_selected.connect(setWindowMode)
+	quit_button.pressed.connect(quit)
 
 func setResolution(id : int):
 	DisplayServer.window_set_size(resDict[resOptionButton.get_item_text(id)])
@@ -55,3 +57,6 @@ func sfxSlider(value : float):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Esc"):
 		visible = !visible
+
+func quit():
+	get_tree().quit()

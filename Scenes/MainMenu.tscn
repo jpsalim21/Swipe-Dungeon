@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brwp2pmag0act"]
+[gd_scene load_steps=10 format=3 uid="uid://brwp2pmag0act"]
 
 [ext_resource type="Script" uid="uid://catvk2jtw7nya" path="res://Scripts/UI/MainMenuScript.gd" id="1_8um5k"]
 [ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="1_tt5f1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://kvrl1rnft3tk" path="res://Scripts/UI/CreditsTextLabel.gd" id="3_8saeu"]
 [ext_resource type="Script" uid="uid://8gjjoehytcbf" path="res://Scripts/UI/OptionsScript.gd" id="3_df05h"]
 [ext_resource type="Script" uid="uid://b3nb4nh4vf713" path="res://Scripts/UI/CreditsScript.gd" id="3_ghw46"]
+[ext_resource type="AudioStream" uid="uid://ni70kcwy1bps" path="res://Sound/MusicMainMenu.wav" id="7_xim88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853f1"]
 bg_color = Color(0.25, 0.1125, 0.1125, 1)
@@ -269,3 +270,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_853f1")
 text = "Voltar"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xim88")
+autoplay = true

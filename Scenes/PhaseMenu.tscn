@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cev8aqo6ti8v3"]
+[gd_scene load_steps=6 format=3 uid="uid://cev8aqo6ti8v3"]
 
 [ext_resource type="Theme" uid="uid://76y5sb10ipj3" path="res://MainTheme.tres" id="1_g0kdp"]
 [ext_resource type="Script" uid="uid://bbhjsrdhuytfj" path="res://Scripts/UI/PhaseMenu.gd" id="1_m5py8"]
 [ext_resource type="PackedScene" uid="uid://diyva6yg2gv20" path="res://Scenes/Options.tscn" id="2_fwiis"]
+[ext_resource type="AudioStream" uid="uid://ni70kcwy1bps" path="res://Sound/MusicMainMenu.wav" id="4_3mehf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0wm5"]
 bg_color = Color(0.25, 0.1125, 0.1125, 1)
@@ -88,5 +89,9 @@ theme_override_font_sizes/font_size = 40
 text = "Return"
 
 [node name="OptionsLayer" parent="." instance=ExtResource("2_fwiis")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3mehf")
+autoplay = true
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

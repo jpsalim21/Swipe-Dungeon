@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk82i4cnmj258"]
+
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="1_7lrqv"]
+[ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="2_82w7v"]
+[ext_resource type="Script" uid="uid://b75m4aplgh5ye" path="res://Scripts/UI/CoinLabel.gd" id="3_ne3lo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gumlf"]
+atlas = ExtResource("1_7lrqv")
+region = Rect2(4, 21, 8, 8)
+
+[node name="CoinHUD" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 9.0
+offset_right = 58.0
+offset_bottom = 49.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gumlf")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_82w7v")
+theme_override_font_sizes/font_size = 40
+text = "- 10"
+vertical_alignment = 1
+script = ExtResource("3_ne3lo")

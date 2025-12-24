@@ -11,6 +11,7 @@ var morrendo : bool = false
 func _ready() -> void:
 	super._ready()
 	area_2d.area_entered.connect(entrouArea)
+	sprite.material = sprite.material.duplicate()
 
 func doTurn():
 	if morrendo:
@@ -41,5 +42,6 @@ func die():
 	particula.global_position = global_position
 	particula.emitting = true
 	await particula.finished
+	tilemap.setOcupado(_tileAtual, null)
 	particula.queue_free()
 	queue_free()

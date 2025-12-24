@@ -27,3 +27,4 @@ angular_velocity_max = 20.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_k5xxh")
 autoplay = true
+bus = &"SFX"

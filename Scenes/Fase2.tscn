@@ -1,0 +1,223 @@
+[gd_scene load_steps=24 format=4 uid="uid://be7qldnmpyd1f"]
+
+[ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="1_dmhxk"]
+[ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="1_kejr4"]
+[ext_resource type="TileSet" uid="uid://c7c4u18kpvmlj" path="res://Sprites/Tilesets/TilesetPadrao.tres" id="1_mn7lq"]
+[ext_resource type="PackedScene" uid="uid://dug5igcmoath6" path="res://ObjectScenes/Coin.tscn" id="1_psxn2"]
+[ext_resource type="AudioStream" uid="uid://bllthso4a6xl" path="res://Sound/coinSound.wav" id="2_glim0"]
+[ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Grid/Gridmap.gd" id="2_kejr4"]
+[ext_resource type="PackedScene" uid="uid://dxtocmcryqnvc" path="res://ObjectScenes/Porta.tscn" id="2_mn7lq"]
+[ext_resource type="Script" uid="uid://lhul2apwhdhl" path="res://Scripts/Units/PlayerController.gd" id="2_wpaju"]
+[ext_resource type="PackedScene" uid="uid://clqiaxjkujys3" path="res://ObjectScenes/botao.tscn" id="3_kejr4"]
+[ext_resource type="PackedScene" uid="uid://jqbj44sg2mek" path="res://ObjectScenes/Wizard.tscn" id="3_lvbbt"]
+[ext_resource type="PackedScene" uid="uid://cef5oyggjgvha" path="res://ObjectScenes/Warrior.tscn" id="4_ch6n5"]
+[ext_resource type="TileSet" uid="uid://b3udu42yktg3b" path="res://Sprites/Tilesets/Complemento.tres" id="4_glim0"]
+[ext_resource type="AudioStream" uid="uid://10feo1a35kfh" path="res://Sound/08_Step_rock_02.wav" id="5_u0i0j"]
+[ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/Units/EnemyController.gd" id="6_6m0w8"]
+[ext_resource type="PackedScene" uid="uid://cc26ebpdrlqfm" path="res://ObjectScenes/enemy.tscn" id="14_psxn2"]
+[ext_resource type="AudioStream" uid="uid://dxo140ppp77lf" path="res://Sound/MusicFase.wav" id="18_bld2n"]
+[ext_resource type="PackedScene" uid="uid://blrp5cmheb6aq" path="res://ObjectScenes/Escada.tscn" id="18_glim0"]
+[ext_resource type="PackedScene" uid="uid://diyva6yg2gv20" path="res://Scenes/Options.tscn" id="19_bld2n"]
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="19_gc6b4"]
+[ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="20_mnxm3"]
+[ext_resource type="Script" uid="uid://b75m4aplgh5ye" path="res://Scripts/UI/CoinLabel.gd" id="21_7orfr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xmgr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or472"]
+atlas = ExtResource("19_gc6b4")
+region = Rect2(4, 21, 8, 8)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameController" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_kejr4")
+
+[node name="CoinAudio" type="AudioStreamPlayer" parent="GameController"]
+stream = ExtResource("2_glim0")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="GameController"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Panel" type="Panel" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3xmgr")
+
+[node name="tilemap" type="TileMapLayer" parent="." node_paths=PackedStringArray("playerUnits")]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAD9//3/AQACAAIAAAD9//7/AQACAAIAAAD9////AQABAAMAAAD9/wAAAQAEAAMAAAD9/wEAAQAFAAIAAAD+//7/AQAAAAMAAAD///7/AQAAAAIAAAAAAP7/AQAFAAIAAAABAP3/AQAFAAIAAAABAP7/AQABAAIAAAABAP//AQADAAIAAAABAAAAAQAAAAMAAAACAP//AQACAAIAAAADAP//AQAAAAIAAAADAA4AAQABAAMAAAAEAA4AAQAEAAMAAAAGAP//AQACAAIAAAAGAAAAAQACAAIAAAAGAAEAAQACAAIAAAAHAP//AQAFAAIAAAAHAAMAAQAEAAMAAAAHAAQAAQADAAMAAAAHAA0AAQAAAAMAAAAHAA4AAQAEAAIAAAAHAA8AAQADAAIAAAAIAAQAAQAFAAIAAAAIAA8AAQABAAIAAAAJAAQAAQAFAAIAAAAJAAwAAQAAAAIAAAAKAAMAAQABAAIAAAAKAAQAAQACAAMAAAALAAwAAQACAAIAAAALAA0AAQAFAAIAAAALAA4AAQAEAAMAAAALAA8AAQADAAMAAAAMAAAAAQAEAAIAAAAMAAEAAQADAAMAAAAMAAIAAQAAAAIAAAD9/wIAAQAAAAIAAAD+//3/AQABAAIAAAD+////AQAAAAIAAAD+/wAAAQAFAAIAAAD+/wEAAQACAAIAAAD+/wIAAQACAAMAAAD///3/AQABAAMAAAD/////AQACAAMAAAD//wAAAQADAAIAAAD//wEAAQAAAAIAAAD//wIAAQAFAAIAAAAAAP3/AQACAAMAAAAAAP//AQADAAMAAAAAAAAAAQAAAAMAAAAAAAEAAQAEAAMAAAAAAAIAAQACAAMAAAABAAEAAQAAAAMAAAABAAIAAQADAAIAAAACABEAAQACAAMAAAADAA8AAQAEAAMAAAADABAAAQADAAMAAAADABEAAQAAAAIAAAAEAP//AQADAAIAAAAFAP7/AQABAAMAAAAFAP//AQABAAMAAAAFAAAAAQADAAMAAAAFAAEAAQAAAAIAAAAFAA4AAQAEAAMAAAAGAP7/AQADAAIAAAAGAA4AAQABAAMAAAAHAP7/AQAEAAIAAAAHAAAAAQAFAAIAAAAHAAEAAQAFAAIAAAAHAAIAAQACAAIAAAAIAAwAAQAAAAMAAAAIAA0AAQAFAAIAAAAIAA4AAQAAAAMAAAAIABAAAQACAAIAAAAJABAAAQADAAIAAAAKAAAAAQAAAAIAAAAKAAEAAQABAAMAAAAKAAIAAQAFAAIAAAAKAAwAAQADAAIAAAAKABAAAQAAAAIAAAALAAAAAQAEAAIAAAALAAQAAQACAAIAAAALAAUAAQAAAAIAAAALAAYAAQAEAAIAAAALAAcAAQAAAAMAAAALAAgAAQABAAIAAAALABAAAQACAAMAAAAMAAQAAQAAAAMAAAAMAAUAAQADAAMAAAAMAAYAAQACAAIAAAAMAAcAAQABAAIAAAAMAAgAAQAAAAIAAAAMAAkAAQAFAAIAAAAMAAoAAQABAAMAAAAMAAsAAQACAAIAAAAMAAwAAQABAAMAAAAMABAAAQAEAAIAAAANAAAAAQABAAMAAAANAAIAAQABAAIAAAANAAMAAQADAAMAAAANAAQAAQACAAIAAAANAAUAAQAEAAMAAAANAAYAAQAAAAMAAAANAAcAAQADAAMAAAANAAgAAQAFAAIAAAANAAkAAQADAAIAAAANAAwAAQABAAIAAAANAA0AAQABAAIAAAANAA4AAQACAAMAAAANAA8AAQADAAMAAAANABAAAQADAAIAAAAOAAAAAQABAAMAAAAOAAQAAQADAAIAAAAOAAUAAQADAAMAAAAOAAYAAQAFAAIAAAAOAAcAAQAEAAIAAAAOAAgAAQAEAAMAAAAOAAwAAQABAAIAAAAOABAAAQAAAAIAAAAPAAAAAQAEAAIAAAAPAAQAAQADAAIAAAAPAAwAAQAAAAMAAAAPAA0AAQABAAMAAAAPAA4AAQABAAIAAAAPAA8AAQAEAAMAAAAPABAAAQABAAIAAAAQAAAAAQAEAAIAAAAQAAEAAQABAAIAAAAQAAIAAQAAAAIAAAAQAAMAAQADAAMAAAAQAAQAAQACAAMAAAA=")
+tile_set = ExtResource("1_mn7lq")
+script = ExtResource("2_kejr4")
+playerUnits = [NodePath("../PlayerController/Player"), NodePath("../PlayerController/Player2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+editor_draw_drag_margin = true
+
+[node name="SceneObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Coins" type="Node2D" parent="SceneObjects"]
+position = Vector2(63, 16)
+
+[node name="Coin" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(-56, -20)
+
+[node name="Coin2" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(40, -22)
+
+[node name="Coin3" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(105, 56)
+
+[node name="Coin4" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(152, 25)
+
+[node name="Coin5" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(151, 105)
+
+[node name="Coin6" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(71, 187)
+
+[node name="Coin7" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(103, 251)
+
+[node name="Coin8" parent="SceneObjects/Coins" instance=ExtResource("1_psxn2")]
+position = Vector2(23, 219)
+
+[node name="Porta" parent="SceneObjects" node_paths=PackedStringArray("botoes") instance=ExtResource("2_mn7lq")]
+position = Vector2(55, 245)
+botoes = [NodePath("../Botao"), NodePath("../Botao2")]
+
+[node name="Porta2" parent="SceneObjects" node_paths=PackedStringArray("botoes") instance=ExtResource("2_mn7lq")]
+position = Vector2(200, 167)
+botoes = [NodePath("../Botao4"), NodePath("../Botao3")]
+
+[node name="Botao" parent="SceneObjects" instance=ExtResource("3_kejr4")]
+position = Vector2(248, 265)
+
+[node name="Botao3" parent="SceneObjects" instance=ExtResource("3_kejr4")]
+position = Vector2(264, 8)
+
+[node name="Botao4" parent="SceneObjects" instance=ExtResource("3_kejr4")]
+position = Vector2(199, 137)
+
+[node name="Botao2" parent="SceneObjects" instance=ExtResource("3_kejr4")]
+position = Vector2(183, 233)
+
+[node name="TilemapsCenario" type="Node2D" parent="SceneObjects"]
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SceneObjects/TilemapsCenario"]
+z_index = -2
+tile_map_data = PackedByteArray("AAADAA8AAAAHAAEAAAAHABAAAAAHAAEAAAD9/wMAAAAHAAEAAAD+/wMAAAAHAAEAAAD//wMAAAAHAAEAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAEAAAACAAAAAAAHAAEAAAADAAAAAAAHAAEAAAAEAAAAAAAHAAEAAAAEAA8AAAAHAAEAAAAFAAIAAAAHAAEAAAAFAA8AAAAHAAEAAAAGAAIAAAAHAAEAAAAGAA8AAAAHAAEAAAAHAAUAAAAHAAEAAAAIAAUAAAAHAAEAAAAIABEAAAAHAAEAAAAJAAUAAAAHAAEAAAAJAA0AAAAHAAEAAAAJABEAAAAHAAEAAAAKAAUAAAAHAAEAAAAKAA0AAAAHAAEAAAAKABEAAAAHAAEAAAALAAEAAAAHAAEAAAALAAkAAAAHAAEAAAALABEAAAAHAAEAAAAMAAMAAAAHAAEAAAAMAA0AAAAHAAEAAAAMABEAAAAHAAEAAAANAAEAAAAHAAEAAAANAAoAAAAHAAEAAAANABEAAAAHAAEAAAAOAAEAAAAHAAEAAAAOAAkAAAAHAAEAAAAOAA0AAAAHAAEAAAAOABEAAAAHAAEAAAAPAAEAAAAHAAEAAAAPAAUAAAAHAAEAAAAPABEAAAAHAAEAAAAQAAUAAAAHAAEAAAA=")
+tile_set = ExtResource("4_glim0")
+
+[node name="CameraAnchor" type="Node2D" parent="." node_paths=PackedStringArray("elementos")]
+script = ExtResource("1_dmhxk")
+elementos = [NodePath("../PlayerController/Player"), NodePath("../PlayerController/Player2")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CameraAnchor"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="PlayerController" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_wpaju")
+
+[node name="Player" parent="PlayerController" instance=ExtResource("3_lvbbt")]
+position = Vector2(-8, -22)
+
+[node name="Player2" parent="PlayerController" instance=ExtResource("4_ch6n5")]
+position = Vector2(-8, 25)
+
+[node name="Timer" type="Timer" parent="PlayerController"]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="PlayerController"]
+stream = ExtResource("5_u0i0j")
+
+[node name="EnemyController" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("6_6m0w8")
+
+[node name="Enemy" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(24, -7)
+
+[node name="Enemy2" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(120, 24)
+
+[node name="Enemy3" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(198, 11)
+
+[node name="Enemy4" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(216, 89)
+
+[node name="Enemy5" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(185, 118)
+
+[node name="Enemy6" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(215, 204)
+
+[node name="Enemy7" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(203, 265)
+
+[node name="Enemy8" parent="EnemyController" instance=ExtResource("14_psxn2")]
+position = Vector2(135, 233)
+
+[node name="Timer" type="Timer" parent="EnemyController"]
+one_shot = true
+
+[node name="Escada" parent="." instance=ExtResource("18_glim0")]
+position = Vector2(40, 277)
+nextPhasePath = &"res://Scenes/Fase3.tscn"
+
+[node name="Sprite2D" parent="Escada" index="0"]
+flip_h = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_bld2n")
+autoplay = true
+bus = &"Music"
+
+[node name="OptionsLayer" parent="." instance=ExtResource("19_bld2n")]
+
+[node name="CoinHUD" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CoinHUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 9.0
+offset_right = 58.0
+offset_bottom = 49.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CoinHUD/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_or472")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CoinHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("20_mnxm3")
+theme_override_font_sizes/font_size = 40
+text = "- 10"
+vertical_alignment = 1
+script = ExtResource("21_7orfr")
+
+[editable path="Escada"]

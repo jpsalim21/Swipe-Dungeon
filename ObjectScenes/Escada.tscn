@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://blrp5cmheb6aq"]
+
+[ext_resource type="Script" uid="uid://wlr21lc8ap5" path="res://Scripts/Objects/Stair.gd" id="1_0tiay"]
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="1_uek2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0c2x"]
+atlas = ExtResource("1_uek2g")
+region = Rect2(96, 0, 16, 32)
+
+[node name="Escada" type="Node2D"]
+script = ExtResource("1_0tiay")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_l0c2x")
+offset = Vector2(0, -9)

@@ -15,10 +15,10 @@ func move(dir : Vector2i, anim : String, flip_h : bool = false):
 	animation.play("Move")
 
 func takeDmg():
+	playerController.parado = true
 	animation.play("Die")
 	await animation.animation_finished
 	playerController.unitMorreu(self as PlayerUnit)
-	
 
 func setOcupado(tile : Vector2i):
 	tilemap.setOcupado(tile, self as PlayerUnit, true)

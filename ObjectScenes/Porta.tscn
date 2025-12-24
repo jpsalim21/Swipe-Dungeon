@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxtocmcryqnvc"]
 
 [ext_resource type="Texture2D" uid="uid://cp3l87oljon4e" path="res://Sprites/Porta.png" id="1_8wx5o"]
-[ext_resource type="Script" uid="uid://b28a72oeu73sj" path="res://Scripts/PortaScript.gd" id="1_260im"]
+[ext_resource type="Script" uid="uid://b28a72oeu73sj" path="res://Scripts/Objects/PortaScript.gd" id="1_260im"]
 [ext_resource type="Shader" uid="uid://dr1ydyoitexet" path="res://Shader/BlinkShader.gdshader" id="2_8sqm0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6gxyf"]

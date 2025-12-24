@@ -11,6 +11,8 @@ var dirMoving : Vector2i = Vector2i.ZERO
 
 var esperando : bool = false
 
+var parado : bool = false
+
 func _ready() -> void:
 	for c in get_children():
 		if c is not PlayerUnit:
@@ -23,7 +25,7 @@ func pararDeEsperar():
 	esperando = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if esperando:
+	if esperando or parado:
 		return
 	if event.is_action_pressed("Down"):
 		move(Vector2i.DOWN, "Down")

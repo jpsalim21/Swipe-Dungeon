@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Swipe Dungeon"
-run/main_scene="uid://dwfkpmtjc67xr"
+run/main_scene="uid://brwp2pmag0act"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,150 @@
+[gd_scene load_steps=7 format=4 uid="uid://dgdn2jmm0qfeg"]
+
+[ext_resource type="PackedScene" uid="uid://clgjd05831g6i" path="res://Scenes/FaseBase.tscn" id="1_28vkm"]
+[ext_resource type="PackedScene" uid="uid://dug5igcmoath6" path="res://ObjectScenes/Coin.tscn" id="2_sf7a3"]
+[ext_resource type="PackedScene" uid="uid://clqiaxjkujys3" path="res://ObjectScenes/botao.tscn" id="2_tkong"]
+[ext_resource type="PackedScene" uid="uid://cc26ebpdrlqfm" path="res://ObjectScenes/enemy.tscn" id="3_b63ix"]
+[ext_resource type="PackedScene" uid="uid://cu6eya3c2j6i" path="res://ObjectScenes/pot.tscn" id="3_qgpxu"]
+[ext_resource type="PackedScene" uid="uid://sto30ttoge7x" path="res://ObjectScenes/Pillar.tscn" id="4_qgpxu"]
+
+[node name="Node2D" instance=ExtResource("1_28vkm")]
+
+[node name="tilemap" parent="." index="2"]
+tile_map_data = PackedByteArray("AAD8//7/AQACAAMAAAD8////AQAAAAIAAAD8/wAAAQACAAIAAAD9/wAAAQAFAAIAAAD9/wEAAQADAAMAAAD+/wEAAQABAAMAAAD+/wAAAQAAAAMAAAD//wAAAQAEAAMAAAD/////AQAAAAMAAAAAAP//AQAEAAMAAAAAAAAAAQABAAIAAAD9//7/AQAAAAMAAAD+//7/AQABAAMAAAD///7/AQADAAMAAAD+////AQABAAIAAAD9////AQAFAAIAAAAAAP7/AQACAAIAAAABAAAAAQABAAIAAAABAP//AQADAAIAAAABAP7/AQAAAAMAAAABAAEAAQABAAMAAAABAAIAAQAEAAMAAAAAAAEAAQACAAMAAAD//wEAAQAAAAIAAAAAAAIAAQACAAIAAAD//wIAAQAAAAIAAAD+/wIAAQAFAAIAAAD9/wIAAQADAAMAAAD8/wIAAQACAAIAAAD8/wEAAQACAAIAAAACAAAAAQAEAAIAAAADAAAAAQABAAIAAAAEAAAAAQADAAMAAAAFAAAAAQAEAAIAAAAGAAAAAQAAAAIAAAAGAP//AQAAAAMAAAAGAP7/AQADAAMAAAAGAP3/AQAEAAIAAAAGAPz/AQACAAIAAAAGAPv/AQACAAIAAAAFAPv/AQACAAMAAAAEAPv/AQADAAIAAAAEAPr/AQACAAIAAAAEAPn/AQABAAIAAAAEAPj/AQAAAAMAAAAEAPf/AQACAAIAAAAEAPb/AQAAAAIAAAAEAPX/AQAAAAMAAAAGAPX/AQAAAAMAAAAHAPX/AQACAAIAAAAJAPT/AQAEAAMAAAAJAPX/AQADAAIAAAAIAPT/AQABAAMAAAAHAPT/AQAAAAMAAAAGAPT/AQAAAAMAAAAFAPT/AQADAAMAAAAEAPT/AQABAAIAAAAJAPb/AQAFAAIAAAAJAPf/AQADAAIAAAAJAPj/AQACAAMAAAAJAPn/AQAFAAIAAAAJAPr/AQAEAAMAAAAJAPv/AQAAAAIAAAAIAPv/AQAAAAIAAAAHAPv/AQABAAIAAAAGAPr/AQAAAAMAAAAGAPn/AQAFAAIAAAAFAPn/AQAAAAIAAAAFAPj/AQABAAIAAAAFAPf/AQABAAIAAAAFAPb/AQAEAAIAAAAGAPb/AQACAAMAAAAGAPf/AQABAAIAAAAGAPj/AQACAAIAAAAHAPr/AQAFAAIAAAAHAPn/AQABAAIAAAAHAPj/AQACAAIAAAAHAPf/AQAAAAIAAAAHAPb/AQACAAMAAAAIAPf/AQADAAMAAAAIAPj/AQACAAMAAAAIAPb/AQAEAAIAAAAHAAAAAQADAAMAAAAIAAAAAQABAAMAAAAJAAAAAQACAAIAAAAKAAAAAQABAAIAAAALAAAAAQACAAMAAAAHAPz/AQAEAAMAAAAHAP3/AQACAAMAAAAHAP7/AQADAAIAAAAHAP//AQACAAMAAAAIAP//AQABAAMAAAAJAP//AQAFAAIAAAAKAP//AQAAAAIAAAALAP//AQADAAIAAAAMAP//AQAFAAIAAAAMAAAAAQACAAIAAAANAAAAAQACAAIAAAANAP//AQADAAIAAAAOAP//AQACAAMAAAAOAAAAAQAAAAMAAAAPAAAAAQADAAMAAAAPAP//AQAEAAIAAAAKAP7/AQABAAIAAAAKAAEAAQADAAIAAAAOAP7/AQABAAIAAAAOAAEAAQADAAMAAAAQAP//AQAEAAIAAAAQAAAAAQAFAAIAAAAQAAEAAQACAAMAAAAQAAIAAQAEAAIAAAAQAAMAAQABAAMAAAANAAQAAQAEAAMAAAANAAUAAQABAAMAAAANAAYAAQABAAMAAAANAAcAAQAEAAIAAAANAAgAAQABAAMAAAAOAAgAAQAFAAIAAAAPAAgAAQABAAIAAAAQAAgAAQAEAAIAAAARAAgAAQAEAAMAAAARAAcAAQAEAAIAAAASAAcAAQAEAAIAAAASAAgAAQACAAIAAAATAAgAAQAEAAIAAAAUAAgAAQACAAMAAAAVAAgAAQAAAAMAAAAVAAcAAQABAAMAAAAVAAYAAQADAAIAAAAVAAUAAQACAAMAAAAVAAQAAQACAAMAAAAUAAQAAQAEAAIAAAATAAQAAQAAAAIAAAASAAQAAQAFAAIAAAARAAQAAQAAAAIAAAAQAAQAAQAAAAMAAAAPAAQAAQAAAAIAAAAOAAQAAQAEAAMAAAAOAAUAAQADAAIAAAAOAAYAAQABAAMAAAAOAAcAAQABAAMAAAAPAAcAAQACAAMAAAAPAAUAAQACAAMAAAAQAAUAAQADAAIAAAAQAAYAAQAEAAMAAAAQAAcAAQAEAAMAAAARAAYAAQACAAMAAAARAAUAAQAAAAIAAAASAAUAAQAFAAIAAAASAAYAAQAAAAIAAAATAAYAAQABAAMAAAAUAAUAAQACAAIAAAAUAAYAAQACAAMAAAAUAAcAAQAEAAIAAAARAAkAAQAEAAMAAAARAAoAAQADAAIAAAARAAsAAQAAAAMAAAARAAwAAQAAAAMAAAARAA0AAQACAAMAAAARAA4AAQAAAAMAAAASAA4AAQABAAMAAAATAA4AAQABAAIAAAAUAA4AAQABAAIAAAAHAAEAAQABAAMAAAAHAAIAAQABAAMAAAAHAAMAAQAAAAMAAAAGAAMAAQACAAIAAAAGAAIAAQABAAIAAAAGAAEAAQABAAMAAAAGAAQAAQAEAAMAAAAHAAQAAQACAAMAAAAIAAQAAQABAAIAAAAJAAQAAQACAAMAAAAJAAUAAQAEAAMAAAAJAAYAAQACAAMAAAAJAAcAAQAEAAIAAAAJAAgAAQADAAMAAAAJAAkAAQAEAAIAAAAJAAoAAQACAAMAAAAIAAoAAQABAAMAAAAHAAoAAQABAAMAAAAGAAoAAQADAAIAAAAFAAoAAQAAAAMAAAAEAAoAAQACAAMAAAAEAAkAAQABAAMAAAAEAAgAAQAAAAMAAAAEAAcAAQAEAAIAAAAEAAYAAQAEAAMAAAAEAAUAAQACAAMAAAAEAAQAAQAAAAIAAAAFAAQAAQAEAAIAAAAFAAYAAQAAAAIAAAAFAAcAAQABAAMAAAAFAAgAAQAEAAIAAAAGAAcAAQABAAIAAAAGAAYAAQABAAIAAAAGAAUAAQAEAAIAAAAGAAgAAQADAAMAAAAGAAkAAQAEAAIAAAAHAAkAAQAAAAIAAAAHAAgAAQABAAIAAAAHAAcAAQAEAAMAAAAHAAYAAQAFAAIAAAAHAAUAAQACAAIAAAAIAAYAAQACAAMAAAAIAAcAAQABAAIAAAAIAAgAAQAAAAMAAAAIAPn/AQADAAMAAAA=")
+
+[node name="Coin" parent="SceneObjects/Coins" index="0"]
+position = Vector2(-6, -6)
+
+[node name="Coin2" parent="SceneObjects/Coins" index="1" instance=ExtResource("2_sf7a3")]
+position = Vector2(10, -7)
+
+[node name="Coin3" parent="SceneObjects/Coins" index="2" instance=ExtResource("2_sf7a3")]
+position = Vector2(27, -7)
+
+[node name="Coin4" parent="SceneObjects/Coins" index="3" instance=ExtResource("2_sf7a3")]
+position = Vector2(75, -22)
+
+[node name="Coin5" parent="SceneObjects/Coins" index="4" instance=ExtResource("2_sf7a3")]
+position = Vector2(41, -118)
+
+[node name="Coin6" parent="SceneObjects/Coins" index="5" instance=ExtResource("2_sf7a3")]
+position = Vector2(56, 75)
+
+[node name="Coin7" parent="SceneObjects/Coins" index="6" instance=ExtResource("2_sf7a3")]
+position = Vector2(201, -5)
+
+[node name="Coin8" parent="SceneObjects/Coins" index="7" instance=ExtResource("2_sf7a3")]
+position = Vector2(202, 28)
+
+[node name="Coin9" parent="SceneObjects/Coins" index="8" instance=ExtResource("2_sf7a3")]
+position = Vector2(218, 75)
+
+[node name="Coin10" parent="SceneObjects/Coins" index="9" instance=ExtResource("2_sf7a3")]
+position = Vector2(185, 120)
+
+[node name="Porta" parent="SceneObjects" index="1" node_paths=PackedStringArray("botoes")]
+position = Vector2(280, 167)
+botoes = [NodePath("../Botao"), NodePath("../Botao2"), NodePath("../Botao3"), NodePath("../Botao4"), NodePath("../Botao5"), NodePath("../Botao6")]
+
+[node name="Botao" parent="SceneObjects" index="2"]
+position = Vector2(119, 169)
+
+[node name="Botao2" parent="SceneObjects" index="3" instance=ExtResource("2_tkong")]
+position = Vector2(104, 168)
+
+[node name="Botao3" parent="SceneObjects" index="4" instance=ExtResource("2_tkong")]
+position = Vector2(104, -182)
+
+[node name="Botao4" parent="SceneObjects" index="5" instance=ExtResource("2_tkong")]
+position = Vector2(119, -182)
+
+[node name="Botao5" parent="SceneObjects" index="6" instance=ExtResource("2_tkong")]
+position = Vector2(153, -74)
+
+[node name="Botao6" parent="SceneObjects" index="7" instance=ExtResource("2_tkong")]
+position = Vector2(312, 137)
+
+[node name="TileMapLayer" parent="SceneObjects/TilemapsCenario" index="0"]
+tile_map_data = PackedByteArray("AAAFAPr/AQABAAIAAAAIAPr/AQABAAMAAAAIAPX/AQAEAAMAAAAFAPX/AQABAAIAAAAFAAUAAQACAAMAAAAIAAUAAQADAAMAAAAIAAkAAQAAAAMAAAAFAAkAAQABAAMAAAAPAAYAAQACAAMAAAATAAcAAQAAAAIAAAATAAUAAQAEAAIAAAD8/wMAAAAHAAEAAAD9/wMAAAAHAAEAAAD+/wMAAAAHAAEAAAD//wMAAAAHAAEAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAEAAAACAAEAAAAHAAEAAAADAAEAAAAHAAEAAAAEAAEAAAAHAAEAAAAFAAEAAAAHAAEAAAAEAAsAAAAHAAEAAAAFAAsAAAAHAAEAAAAGAAsAAAAHAAEAAAAHAAsAAAAHAAEAAAAIAAsAAAAHAAEAAAAJAAsAAAAHAAEAAAAIAAEAAAAHAAEAAAAJAAEAAAAHAAEAAAAKAAIAAAAHAAEAAAALAAEAAAAHAAEAAAAMAAEAAAAHAAEAAAANAAEAAAAHAAEAAAAOAAIAAAAHAAEAAAAPAAEAAAAHAAEAAAANAAkAAAAHAAEAAAAOAAkAAAAHAAEAAAAPAAkAAAAHAAEAAAAQAAkAAAAHAAEAAAASAAkAAAAHAAEAAAATAAkAAAAHAAEAAAAUAAkAAAAHAAEAAAAVAAkAAAAHAAEAAAARAA8AAAAHAAEAAAASAA8AAAAHAAEAAAATAA8AAAAHAAEAAAAUAA8AAAAHAAEAAAAIAPz/AAAHAAEAAAAJAPz/AAAHAAEAAAAFAPz/AAAHAAEAAAAEAPz/AAAHAAEAAAA=")
+
+[node name="Pot" parent="SceneObjects" index="9"]
+position = Vector2(167, -20)
+
+[node name="Pot2" parent="SceneObjects" index="10" instance=ExtResource("3_qgpxu")]
+position = Vector2(167, 26)
+
+[node name="Pot3" parent="SceneObjects" index="11" instance=ExtResource("3_qgpxu")]
+position = Vector2(231, 25)
+
+[node name="Pot4" parent="SceneObjects" index="12" instance=ExtResource("3_qgpxu")]
+position = Vector2(232, -22)
+
+[node name="Pilar" parent="SceneObjects" index="13"]
+position = Vector2(86, 89)
+
+[node name="Pilar2" parent="SceneObjects" index="14" instance=ExtResource("4_qgpxu")]
+position = Vector2(138, 89)
+
+[node name="Pilar3" parent="SceneObjects" index="15" instance=ExtResource("4_qgpxu")]
+position = Vector2(136, 151)
+
+[node name="Pilar4" parent="SceneObjects" index="16" instance=ExtResource("4_qgpxu")]
+position = Vector2(88, 153)
+
+[node name="Pilar5" parent="SceneObjects" index="17" instance=ExtResource("4_qgpxu")]
+position = Vector2(90, -90)
+
+[node name="Pilar6" parent="SceneObjects" index="18" instance=ExtResource("4_qgpxu")]
+position = Vector2(136, -87)
+
+[node name="Pilar9" parent="SceneObjects" index="19" instance=ExtResource("4_qgpxu")]
+position = Vector2(248, 105)
+
+[node name="Pilar10" parent="SceneObjects" index="20" instance=ExtResource("4_qgpxu")]
+position = Vector2(313, 87)
+
+[node name="Pilar11" parent="SceneObjects" index="21" instance=ExtResource("4_qgpxu")]
+position = Vector2(315, 121)
+
+[node name="Pilar7" parent="SceneObjects" index="22" instance=ExtResource("4_qgpxu")]
+position = Vector2(134, -168)
+
+[node name="Pilar8" parent="SceneObjects" index="23" instance=ExtResource("4_qgpxu")]
+position = Vector2(86, -166)
+
+[node name="Escada" parent="." index="6"]
+position = Vector2(328, 232)
+nextPhasePath = &"res://Scenes/PhaseMenu.tscn"
+
+[node name="Player" parent="PlayerController" index="0"]
+position = Vector2(24, 19)
+
+[node name="Player2" parent="PlayerController" index="1"]
+position = Vector2(8, 18)
+
+[node name="Enemy2" parent="EnemyController" index="1" instance=ExtResource("3_b63ix")]
+position = Vector2(109, -126)
+
+[node name="Enemy3" parent="EnemyController" index="2" instance=ExtResource("3_b63ix")]
+position = Vector2(138, -103)
+
+[node name="Enemy4" parent="EnemyController" index="3" instance=ExtResource("3_b63ix")]
+position = Vector2(86, -71)
+
+[node name="Enemy5" parent="EnemyController" index="4" instance=ExtResource("3_b63ix")]
+position = Vector2(137, 108)
+
+[node name="Enemy6" parent="EnemyController" index="5" instance=ExtResource("3_b63ix")]
+position = Vector2(90, 123)
+
+[node name="Enemy7" parent="EnemyController" index="6" instance=ExtResource("3_b63ix")]
+position = Vector2(136, 137)
+
+[node name="Enemy8" parent="EnemyController" index="7" instance=ExtResource("3_b63ix")]
+position = Vector2(247, 91)
+
+[node name="Enemy9" parent="EnemyController" index="8" instance=ExtResource("3_b63ix")]
+position = Vector2(313, 74)
+
+[node name="Enemy10" parent="EnemyController" index="9" instance=ExtResource("3_b63ix")]
+position = Vector2(327, 122)

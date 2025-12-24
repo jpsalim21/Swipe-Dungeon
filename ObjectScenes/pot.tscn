@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="1_wjuc4"]
 [ext_resource type="Shader" uid="uid://dr1ydyoitexet" path="res://Shader/BlinkShader.gdshader" id="2_jce4w"]
-[ext_resource type="Script" uid="uid://cdys7jbv0ofcl" path="res://Scripts/Pot.gd" id="2_nkrya"]
+[ext_resource type="Script" uid="uid://cdys7jbv0ofcl" path="res://Scripts/Objects/Pot.gd" id="2_nkrya"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jce4w"]
 shader = ExtResource("2_jce4w")

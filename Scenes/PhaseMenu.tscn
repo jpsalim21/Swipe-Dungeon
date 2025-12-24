@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://cev8aqo6ti8v3"]
+
+[ext_resource type="Theme" uid="uid://76y5sb10ipj3" path="res://MainTheme.tres" id="1_g0kdp"]
+[ext_resource type="Script" uid="uid://bbhjsrdhuytfj" path="res://Scripts/UI/PhaseMenu.gd" id="1_m5py8"]
+[ext_resource type="PackedScene" uid="uid://diyva6yg2gv20" path="res://Scenes/Options.tscn" id="2_fwiis"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0wm5"]
+bg_color = Color(0.25, 0.1125, 0.1125, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("phaseButtons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5py8")
+phaseButtons = [NodePath("MarginContainer/HBoxContainer/Button"), NodePath("MarginContainer/HBoxContainer/Button2"), NodePath("MarginContainer/HBoxContainer/Button3")]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0wm5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 79
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_g0kdp")
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_g0kdp")
+theme_override_font_sizes/font_size = 80
+text = "2
+"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_g0kdp")
+theme_override_font_sizes/font_size = 80
+text = "3
+"
+
+[node name="Return" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -128.0
+offset_right = 92.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+theme = ExtResource("1_g0kdp")
+theme_override_font_sizes/font_size = 40
+text = "Return"
+
+[node name="OptionsLayer" parent="." instance=ExtResource("2_fwiis")]
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

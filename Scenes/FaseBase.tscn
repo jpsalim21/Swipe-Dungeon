@@ -1,0 +1,169 @@
+[gd_scene load_steps=26 format=3 uid="uid://clgjd05831g6i"]
+
+[ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="1_kl61v"]
+[ext_resource type="AudioStream" uid="uid://bllthso4a6xl" path="res://Sound/coinSound.wav" id="2_6knww"]
+[ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Grid/Gridmap.gd" id="3_6knww"]
+[ext_resource type="TileSet" uid="uid://c7c4u18kpvmlj" path="res://Sprites/Tilesets/TilesetPadrao.tres" id="3_dctw2"]
+[ext_resource type="PackedScene" uid="uid://dug5igcmoath6" path="res://ObjectScenes/Coin.tscn" id="4_3i5hh"]
+[ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="4_5562g"]
+[ext_resource type="PackedScene" uid="uid://dxtocmcryqnvc" path="res://ObjectScenes/Porta.tscn" id="5_gkfdg"]
+[ext_resource type="PackedScene" uid="uid://clqiaxjkujys3" path="res://ObjectScenes/botao.tscn" id="6_woky6"]
+[ext_resource type="TileSet" uid="uid://b3udu42yktg3b" path="res://Sprites/Tilesets/Complemento.tres" id="7_anvim"]
+[ext_resource type="PackedScene" uid="uid://cu6eya3c2j6i" path="res://ObjectScenes/pot.tscn" id="8_gkfdg"]
+[ext_resource type="PackedScene" uid="uid://sto30ttoge7x" path="res://ObjectScenes/Pillar.tscn" id="9_woky6"]
+[ext_resource type="PackedScene" uid="uid://blrp5cmheb6aq" path="res://ObjectScenes/Escada.tscn" id="10_anvim"]
+[ext_resource type="Script" uid="uid://lhul2apwhdhl" path="res://Scripts/Units/PlayerController.gd" id="12_40dyl"]
+[ext_resource type="PackedScene" uid="uid://jqbj44sg2mek" path="res://ObjectScenes/Wizard.tscn" id="13_8tomt"]
+[ext_resource type="PackedScene" uid="uid://cef5oyggjgvha" path="res://ObjectScenes/Warrior.tscn" id="14_318bq"]
+[ext_resource type="AudioStream" uid="uid://10feo1a35kfh" path="res://Sound/08_Step_rock_02.wav" id="15_fm0l3"]
+[ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/Units/EnemyController.gd" id="16_318bq"]
+[ext_resource type="PackedScene" uid="uid://cc26ebpdrlqfm" path="res://ObjectScenes/enemy.tscn" id="17_fm0l3"]
+[ext_resource type="AudioStream" uid="uid://dxo140ppp77lf" path="res://Sound/MusicFase.wav" id="18_fm0l3"]
+[ext_resource type="PackedScene" uid="uid://diyva6yg2gv20" path="res://Scenes/Options.tscn" id="19_wuhb3"]
+[ext_resource type="Texture2D" uid="uid://cjt5hvc37auy0" path="res://Sprites/Cenario.png" id="20_dctw2"]
+[ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="21_kt50q"]
+[ext_resource type="Script" uid="uid://b75m4aplgh5ye" path="res://Scripts/UI/CoinLabel.gd" id="22_31mfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl61v"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rloo8"]
+atlas = ExtResource("20_dctw2")
+region = Rect2(4, 21, 8, 8)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameController" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_kl61v")
+
+[node name="CoinAudio" type="AudioStreamPlayer" parent="GameController"]
+stream = ExtResource("2_6knww")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="GameController"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Panel" type="Panel" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kl61v")
+
+[node name="tilemap" type="TileMapLayer" parent="." node_paths=PackedStringArray("playerUnits")]
+unique_name_in_owner = true
+tile_set = ExtResource("3_dctw2")
+script = ExtResource("3_6knww")
+playerUnits = [NodePath("../PlayerController/Player"), NodePath("../PlayerController/Player2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+editor_draw_drag_margin = true
+
+[node name="CameraAnchor" type="Node2D" parent="." node_paths=PackedStringArray("elementos")]
+script = ExtResource("4_5562g")
+elementos = [NodePath("../PlayerController/Player"), NodePath("../PlayerController/Player2")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CameraAnchor"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="SceneObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Coins" type="Node2D" parent="SceneObjects"]
+position = Vector2(63, 16)
+
+[node name="Coin" parent="SceneObjects/Coins" instance=ExtResource("4_3i5hh")]
+position = Vector2(-56, -20)
+
+[node name="Porta" parent="SceneObjects" node_paths=PackedStringArray("botoes") instance=ExtResource("5_gkfdg")]
+position = Vector2(55, 245)
+botoes = [NodePath("../Botao")]
+
+[node name="Botao" parent="SceneObjects" instance=ExtResource("6_woky6")]
+position = Vector2(248, 265)
+
+[node name="TilemapsCenario" type="Node2D" parent="SceneObjects"]
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SceneObjects/TilemapsCenario"]
+z_index = -2
+tile_set = ExtResource("7_anvim")
+
+[node name="Pot" parent="SceneObjects" instance=ExtResource("8_gkfdg")]
+position = Vector2(95, -6)
+
+[node name="Pilar" parent="SceneObjects" instance=ExtResource("9_woky6")]
+position = Vector2(77, 0)
+
+[node name="Escada" parent="." instance=ExtResource("10_anvim")]
+position = Vector2(35, 226)
+
+[node name="PlayerController" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-47, -9)
+script = ExtResource("12_40dyl")
+
+[node name="Player" parent="PlayerController" instance=ExtResource("13_8tomt")]
+position = Vector2(-8, -22)
+
+[node name="Player2" parent="PlayerController" instance=ExtResource("14_318bq")]
+position = Vector2(-8, 25)
+
+[node name="Timer" type="Timer" parent="PlayerController"]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="PlayerController"]
+stream = ExtResource("15_fm0l3")
+
+[node name="EnemyController" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("16_318bq")
+
+[node name="Enemy" parent="EnemyController" instance=ExtResource("17_fm0l3")]
+position = Vector2(24, -7)
+
+[node name="Timer" type="Timer" parent="EnemyController"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_fm0l3")
+autoplay = true
+bus = &"Music"
+
+[node name="OptionsLayer" parent="." instance=ExtResource("19_wuhb3")]
+
+[node name="CoinHUD" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CoinHUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 9.0
+offset_right = 58.0
+offset_bottom = 49.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CoinHUD/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_rloo8")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CoinHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("21_kt50q")
+theme_override_font_sizes/font_size = 40
+text = "- 10"
+vertical_alignment = 1
+script = ExtResource("22_31mfw")

@@ -7,6 +7,8 @@ const POT_PARTICLE = preload("uid://wx2g2e5vxkdo")
 const COIN = preload("uid://dug5igcmoath6")
 @onready var coins: Node2D = $"../Coins"
 
+var destroyed : bool = false
+
 func _ready() -> void:
 	super._ready()
 	area_2d.area_entered.connect(areaEntered)
@@ -27,6 +29,10 @@ func areaEntered(area : Area2D):
 	die()
 
 func die():
+	if destroyed:
+		return
+	destroyed = true
+	tilemap.setOcupado(_tileAtual, null)
 	visible = false
 	var particula : CPUParticles2D = POT_PARTICLE.instantiate() as CPUParticles2D
 	get_tree().current_scene.add_child(particula)

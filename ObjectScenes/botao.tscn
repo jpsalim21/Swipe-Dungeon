@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://clqiaxjkujys3"]
 
 [ext_resource type="Texture2D" uid="uid://bd63lfjkbduv7" path="res://Sprites/Botao.png" id="1_ff1dp"]
-[ext_resource type="Script" uid="uid://ca6l7k7mu6vf8" path="res://Scripts/ButtonScript.gd" id="1_gcg7w"]
+[ext_resource type="Script" uid="uid://ca6l7k7mu6vf8" path="res://Scripts/Objects/ButtonScript.gd" id="1_gcg7w"]
 [ext_resource type="AudioStream" uid="uid://u6bmvy7xxry1" path="res://Sound/Button.wav" id="3_q21i1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcg7w"]
@@ -42,3 +42,5 @@ autoplay = "default"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_q21i1")
+volume_db = 5.0
+bus = &"SFX"

@@ -3,8 +3,8 @@ A fazer:
 	Adicionar inimigo diferente
 
 Fazendo:
-	Criar menu inicial
 	Adicionar fim de fase
 
 Feito:
+	Criar menu inicial
 	Adicionar som

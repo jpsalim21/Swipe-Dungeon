@@ -29,7 +29,8 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://Addons/": "yellow"
+"res://Addons/": "yellow",
+"res://Build/": "pink"
 }
 
 [input]

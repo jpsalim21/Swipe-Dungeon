@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://diyva6yg2gv20"]
+[gd_scene load_steps=6 format=3 uid="uid://diyva6yg2gv20"]
 
 [ext_resource type="Script" uid="uid://8gjjoehytcbf" path="res://Scripts/UI/OptionsScript.gd" id="1_5hy3q"]
 [ext_resource type="FontFile" uid="uid://bx6btgurlmtq0" path="res://Sprites/upheavtt.ttf" id="2_cbhj7"]
 [ext_resource type="Theme" uid="uid://76y5sb10ipj3" path="res://MainTheme.tres" id="3_q4at1"]
+[ext_resource type="AudioStream" uid="uid://cm3qf5d84cqgf" path="res://Sound/Menu_Select2.wav" id="4_cbhj7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hy3q"]
 bg_color = Color(0.14, 0.14, 0.14, 1)
@@ -121,3 +122,6 @@ text = "Return"
 layout_mode = 2
 theme = ExtResource("3_q4at1")
 text = "Quit"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="Options"]
+stream = ExtResource("4_cbhj7")

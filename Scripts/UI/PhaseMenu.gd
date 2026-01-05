@@ -7,6 +7,7 @@ var phaseScenes : Array[String] = [
 ]
 
 @export var phaseButtons : Array[Button] = []
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
 
 const MAIN_MENU = "res://Scenes/MainMenu.tscn"
 
@@ -15,7 +16,9 @@ func _ready() -> void:
 		phaseButtons[b].pressed.connect(changeScene.bind(b))
 
 func changeScene(id : int):
+	button_sound.play()
 	SceneController.changeSceneTo(phaseScenes[id])
 
 func _on_return_pressed() -> void:
+	button_sound.play()
 	SceneController.changeSceneTo(MAIN_MENU)

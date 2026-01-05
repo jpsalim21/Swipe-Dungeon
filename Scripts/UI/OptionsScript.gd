@@ -20,12 +20,14 @@ var windowModes : Array[String] = [
 
 @onready var backButton: Button = $Panel2/MarginContainer/VBoxContainer/Button
 @onready var quit_button: Button = $Panel2/MarginContainer/VBoxContainer/QuitButton
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
+
 
 func _ready() -> void:
 	sound_slider.value_changed.connect(soundSlider)
 	music_slider.value_changed.connect(musicSlider)
 	sfx_slider.value_changed.connect(sfxSlider)
-	backButton.pressed.connect(hide)
+	backButton.pressed.connect(esconder)
 	for key in resDict:
 		resOptionButton.add_item(key)
 	for key in windowModes:
@@ -57,6 +59,10 @@ func sfxSlider(value : float):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Esc"):
 		visible = !visible
+
+func esconder():
+	button_sound.play()
+	hide()
 
 func quit():
 	get_tree().quit()

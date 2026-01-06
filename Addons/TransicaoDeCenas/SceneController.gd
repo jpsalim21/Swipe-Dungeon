@@ -6,11 +6,18 @@ extends Node
 ## Sempre que rode uma transição, reseta a posição do foco
 var resetFocus := true
 
+var cenaAtual = null
+var pathAtual : String = ""
+
+func _ready() -> void:
+	var root = get_tree().root
+	cenaAtual = root.get_child(-1)
+
 ##Muda a cena para a cena de caminho [param path], com transição inicial [param animacao1] e transição final [param animacao2]
 ##Possíveis animacoes: [br][br]Diamond[br]Circle[br]CircleToon[br]Fade[br]
 func changeSceneTo(scene : String, animacao1 : String = "Diamond", animacao2: String = "Diamond"):
 	await Cortina.preencheTela(true, animacao1)
-	get_tree().change_scene_to_file(scene)
+	changeScene.call_deferred(scene)
 	Cortina.preencheTela(false, animacao2)
 	if resetFocus:
 		Cortina._setFocus(Vector2(0.5, 0.5))
@@ -18,10 +25,8 @@ func changeSceneTo(scene : String, animacao1 : String = "Diamond", animacao2: St
 ##Recarrega a cena atual, com a transicao inicial [param animacao1] e transição final [param animacao2]
 func reloadCurrentScene(animacao1 : String = "Diamond", animacao2 : String = "Diamond"):
 	await Cortina.preencheTela(true, animacao1)
-	get_tree().reload_current_scene()
+	changeScene.call_deferred(pathAtual)
 	Cortina.preencheTela(false, animacao2)
-	#if resetFocus:
-	#	Cortina._setFocus(Vector2(0.5, 0.5))
 
 ##Recebe a [param pos] (global position) e coloca como foco da transição.
 func setPositionFocus(pos : Vector2):
@@ -37,3 +42,11 @@ func setPositionFocus(pos : Vector2):
 	print(newPos, screenSize, uvPos)
 	print("Setei novo foco")
 	Cortina._setFocus(uvPos)
+
+func changeScene(path : String):
+	cenaAtual.free()
+	pathAtual = path
+	var newScene = ResourceLoader.load(path)
+	cenaAtual = newScene.instantiate()
+	get_tree().root.add_child(cenaAtual)
+	get_tree().current_scene = cenaAtual

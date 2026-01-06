@@ -2,6 +2,7 @@ class_name Tile
 extends Object
 
 signal playerUnitEntrou
+signal otherUnitEntrou
 
 
 var anterior : Vector2i
@@ -9,7 +10,11 @@ var custo : int
 var ocupado : bool:
 	get():
 		return unit != null
-var unit : Unit = null
+var unit : Unit = null:
+	set(value):
+		unit = value
+		if value:
+			otherUnitEntrou.emit()
 var playerUnit : bool = false:
 	set(value):
 		playerUnit = value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dwfkpmtjc67xr"]
+[gd_scene load_steps=27 format=4 uid="uid://dwfkpmtjc67xr"]
 
 [ext_resource type="TileSet" uid="uid://c7c4u18kpvmlj" path="res://Sprites/Tilesets/TilesetPadrao.tres" id="1_qkok7"]
 [ext_resource type="Script" uid="uid://cfq6dtg55vqam" path="res://Scripts/Grid/Gridmap.gd" id="2_qkok7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://blrp5cmheb6aq" path="res://ObjectScenes/Escada.tscn" id="7_qkok7"]
 [ext_resource type="PackedScene" uid="uid://cu6eya3c2j6i" path="res://ObjectScenes/pot.tscn" id="8_a4ksc"]
 [ext_resource type="Script" uid="uid://lhul2apwhdhl" path="res://Scripts/Units/PlayerController.gd" id="9_lahb1"]
+[ext_resource type="PackedScene" uid="uid://cw1q14nx1aeku" path="res://ObjectScenes/Espinho.tscn" id="9_qkok7"]
 [ext_resource type="PackedScene" uid="uid://jqbj44sg2mek" path="res://ObjectScenes/Wizard.tscn" id="10_dgi5n"]
 [ext_resource type="PackedScene" uid="uid://cef5oyggjgvha" path="res://ObjectScenes/Warrior.tscn" id="11_gain7"]
 [ext_resource type="AudioStream" uid="uid://10feo1a35kfh" path="res://Sound/08_Step_rock_02.wav" id="12_nbxfv"]
@@ -175,6 +176,21 @@ position = Vector2(104, 106)
 
 [node name="Pot3" parent="SceneObjects" instance=ExtResource("8_a4ksc")]
 position = Vector2(103, 201)
+
+[node name="Node2D" parent="SceneObjects" instance=ExtResource("9_qkok7")]
+position = Vector2(88, 151)
+
+[node name="Node2D2" parent="SceneObjects" instance=ExtResource("9_qkok7")]
+position = Vector2(-40, 183)
+
+[node name="Node2D3" parent="SceneObjects" instance=ExtResource("9_qkok7")]
+position = Vector2(136, 231)
+
+[node name="Node2D4" parent="SceneObjects" instance=ExtResource("9_qkok7")]
+position = Vector2(72, 39)
+
+[node name="Node2D5" parent="SceneObjects" instance=ExtResource("9_qkok7")]
+position = Vector2(88, 55)
 
 [node name="PlayerController" type="Node2D" parent="."]
 y_sort_enabled = true

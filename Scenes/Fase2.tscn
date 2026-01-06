@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://be7qldnmpyd1f"]
+[gd_scene load_steps=25 format=4 uid="uid://be7qldnmpyd1f"]
 
 [ext_resource type="Script" uid="uid://bsg5wxqep0l6v" path="res://Scripts/CameraAnchor.gd" id="1_dmhxk"]
 [ext_resource type="Script" uid="uid://bn40dtnbp3dwx" path="res://Scripts/GameController.gd" id="1_kejr4"]
@@ -14,6 +14,7 @@
 [ext_resource type="TileSet" uid="uid://b3udu42yktg3b" path="res://Sprites/Tilesets/Complemento.tres" id="4_glim0"]
 [ext_resource type="AudioStream" uid="uid://10feo1a35kfh" path="res://Sound/08_Step_rock_02.wav" id="5_u0i0j"]
 [ext_resource type="Script" uid="uid://b5bu6rga04uf6" path="res://Scripts/Units/EnemyController.gd" id="6_6m0w8"]
+[ext_resource type="PackedScene" uid="uid://cw1q14nx1aeku" path="res://ObjectScenes/Espinho.tscn" id="9_mnxm3"]
 [ext_resource type="PackedScene" uid="uid://cc26ebpdrlqfm" path="res://ObjectScenes/enemy.tscn" id="14_psxn2"]
 [ext_resource type="AudioStream" uid="uid://dxo140ppp77lf" path="res://Sound/MusicFase.wav" id="18_bld2n"]
 [ext_resource type="PackedScene" uid="uid://blrp5cmheb6aq" path="res://ObjectScenes/Escada.tscn" id="18_glim0"]
@@ -128,6 +129,15 @@ y_sort_enabled = true
 z_index = -2
 tile_map_data = PackedByteArray("AAADAA8AAAAHAAEAAAAHABAAAAAHAAEAAAD9/wMAAAAHAAEAAAD+/wMAAAAHAAEAAAD//wMAAAAHAAEAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAEAAAACAAAAAAAHAAEAAAADAAAAAAAHAAEAAAAEAAAAAAAHAAEAAAAEAA8AAAAHAAEAAAAFAAIAAAAHAAEAAAAFAA8AAAAHAAEAAAAGAAIAAAAHAAEAAAAGAA8AAAAHAAEAAAAHAAUAAAAHAAEAAAAIAAUAAAAHAAEAAAAIABEAAAAHAAEAAAAJAAUAAAAHAAEAAAAJAA0AAAAHAAEAAAAJABEAAAAHAAEAAAAKAAUAAAAHAAEAAAAKAA0AAAAHAAEAAAAKABEAAAAHAAEAAAALAAEAAAAHAAEAAAALAAkAAAAHAAEAAAALABEAAAAHAAEAAAAMAAMAAAAHAAEAAAAMAA0AAAAHAAEAAAAMABEAAAAHAAEAAAANAAEAAAAHAAEAAAANAAoAAAAHAAEAAAANABEAAAAHAAEAAAAOAAEAAAAHAAEAAAAOAAkAAAAHAAEAAAAOAA0AAAAHAAEAAAAOABEAAAAHAAEAAAAPAAEAAAAHAAEAAAAPAAUAAAAHAAEAAAAPABEAAAAHAAEAAAAQAAUAAAAHAAEAAAA=")
 tile_set = ExtResource("4_glim0")
+
+[node name="Node2D" parent="SceneObjects" instance=ExtResource("9_mnxm3")]
+position = Vector2(56, -8)
+
+[node name="Node2D2" parent="SceneObjects" instance=ExtResource("9_mnxm3")]
+position = Vector2(215, 119)
+
+[node name="Node2D3" parent="SceneObjects" instance=ExtResource("9_mnxm3")]
+position = Vector2(215, 231)
 
 [node name="CameraAnchor" type="Node2D" parent="." node_paths=PackedStringArray("elementos")]
 script = ExtResource("1_dmhxk")
